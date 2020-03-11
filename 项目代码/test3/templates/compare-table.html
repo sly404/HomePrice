@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="replace">
+    <thead>
+    <tr>
+        <th class="wd-15p">城市名</th>
+        <th class="wd-15p">区名</th>
+        <th class="wd-20p">房价</th>
+        <th class="wd-15p">同比涨跌</th>
+        <th class="wd-10p">环比涨跌</th>
+        <th class="wd-10p">排名</th>
+    </tr>
+    </thead>
+    <tbody>
+     {% for item in districtInfo %}
+    <tr>
+    <td>{{ item.districtCityName }}</td>
+    <td>{{ item.districtName }}</td>
+    <td>{{ item.instantPrice }}</td>
+    <td>{{ item.yearOnYearRatio }}</td>
+    <td>{{ item.linkRelativeRatio }}</td>
+    <td>{{ item.ranking }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

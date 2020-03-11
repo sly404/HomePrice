@@ -1,0 +1,366 @@
+<!--刘亦凡编写-->
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+	<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>996也付不起首付队</title>
+
+		<!--Favicon -->
+		<link rel="icon" href="{% static 'assets/img/favicon.ico' %}" type="image/x-icon"/>
+
+		<!--Bootstrap.min css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+
+		<!--Icons css-->
+		<link rel="stylesheet" href="{% static 'assets/css/icons.css' %}">
+
+		<!--Style css-->
+		<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+		<!--mCustomScrollbar css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/scroll-bar/jquery.mCustomScrollbar.css' %}">
+
+		<!--Sidemenu css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/toggle-menu/sidemenu.css' %}">
+
+		<!--Morris css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/morris/morris.css' %}">
+
+	</head>
+
+	<body class="app ">
+
+		<div id="spinner"></div>
+
+		<div id="app">
+			<div class="main-wrapper" >
+				<nav class="navbar navbar-expand-lg main-navbar">
+					<a class="header-brand" href="../index">
+						<img src="{% static 'assets/img/brand/logo.png' %}" class="header-brand-img" alt="Kharna-Admin  logo">
+					</a>
+					<form class="form-inline mr-auto">
+						<ul class="navbar-nav mr-3">
+							<li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a></li>
+							<li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"><i class="ion ion-search"></i></a></li>
+						</ul>
+						<!-- <div class="search-element"> -->
+							<!-- <input class="form-control" type="search" placeholder="Search" aria-label="Search"> -->
+							<!-- <button class="btn btn-primary" type="submit"><i class="ion ion-search"></i></button> -->
+						<!-- </div> -->
+					</form>
+					<ul class="navbar-nav navbar-right">
+						<li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="ion-ios-email-outline"></i></a>
+							<div class="dropdown-menu dropdown-list dropdown-menu-right">
+								<div class="dropdown-header">Messages
+									<div class="float-right">
+										<a href="#">View All</a>
+									</div>
+								</div>
+								<div class="dropdown-list-content">
+									<a href="#" class="dropdown-item dropdown-item-unread">
+										<img alt="image" src="{% static 'assets/img/avatar/avatar-1.jpeg.jpg' %}" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Stewart Ball</b>
+													<p>Your template awesome</p>
+												</div>
+												<div class="time">6 hours ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item dropdown-item-unread">
+										<img alt="image" src="{% static 'assets/img/avatar/avatar-2.jpeg.jpg' %}" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Jonathan North</b>
+													<p>Your Order Shipped.....</p>
+												</div>
+												<div class="time">45 mins ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<img alt="image" src="{% static 'assets/img/avatar/avatar-4.jpeg.jpg' %}" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Victor Taylor</b>
+													<p>Hi!, I' am web developer</p>
+												</div>
+												<div class="time"> 8 hours ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<img alt="image" src="{% static 'assets/img/avatar/avatar-3.jpeg.jpg' %}" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Ruth	Arnold</b>
+													<p>Hi!, I' am web designer</p>
+												</div>
+												<div class="time"> 3 hours ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<img alt="image" src="{% static 'assets/img/avatar/avatar-5.jpeg.jpg' %}" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Sam	Lyman</b>
+													<p>Hi!, I' am java developer</p>
+												</div>
+												<div class="time"> 15 mintues ago</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</li>
+						<li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link  nav-link-lg beep"><i class="ion-ios-bell-outline"></i></a>
+							<div class="dropdown-menu dropdown-list dropdown-menu-right">
+								<div class="dropdown-header">Notifications
+									<div class="float-right">
+										<a href="#">View All</a>
+									</div>
+								</div>
+								<div class="dropdown-list-content">
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-users text-primary"></i>
+										<div class="dropdown-item-desc">
+											<b>So many Users Visit your template</b>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-exclamation-triangle text-danger"></i>
+										<div class="dropdown-item-desc">
+											<b>Error message occurred....</b>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-users text-warning"></i>
+										<div class="dropdown-item-desc">
+											<b> Adding new people</b>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-shopping-cart text-success"></i>
+										<div class="dropdown-item-desc">
+											<b>Your items Arrived</b>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-comment text-primary"></i>
+										<div class="dropdown-item-desc">
+											<b>New Message received</b> <div class="float-right"><span class="badge badge-pill badge-danger badge-sm">67</span></div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-users text-primary"></i>
+										<div class="dropdown-item-desc">
+											<b>So many Users Visit your template</b>
+										</div>
+									</a>
+								</div>
+							</div>
+						</li>
+						<li class="dropdown dropdown-list-toggle">
+							<a href="#" class="nav-link nav-link-lg full-screen-link">
+								<i class="ion-arrow-expand"  id="fullscreen-button"></i>
+							</a>
+						</li>
+						<li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
+							<i class="ion ion-android-person"></i>
+							<div class="d-sm-none d-lg-inline-block">{{ username1 }}</div></a>
+						</li>
+					</ul>
+				</nav>
+
+				<aside class="app-sidebar">
+					<div class="app-sidebar__user">
+					    <div class="dropdown">
+							<a class="nav-link pl-2 pr-2 leading-none d-flex" data-toggle="dropdown" href="#">
+								<i class="ion ion-android-person"></i>
+								<span class="ml-2 d-lg-block">
+									<span class="text-white app-sidebar__user-name mt-5">{{ username1 }}</span><br>
+								</span>
+							</a>
+						</div>
+					</div>
+						<li class="slide">
+							<a class="side-menu__item"  href="../index"><i class="side-menu__icon fa fa-desktop"></i><span class="side-menu__label">主页</span></a>
+						</li>
+						<li>
+							<a class="side-menu__item" href="../recommend"><i class="side-menu__icon fa fa-flask"></i><span class="side-menu__label">房源推荐</span></a>
+						</li>
+						<li class="slide">
+							<a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-tasks"></i><span class="side-menu__label">房价信息</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li><a href="../houseinfo" class="slide-item"> 城市房价</a></li>
+								<li><a href="../compare" class="slide-item"> 房价对比</a></li>
+								
+							</ul>
+						</li>
+						<li class="slide">
+						    <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-paw"></i><span class="side-menu__label">房价分析</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li><a href="../ranking" class="slide-item"> 房价排行</a></li>
+								<li><a href="../predict" class="slide-item">房价预测</a></li>
+							</ul>
+						</li>
+						<li class="slide">
+							<a class="side-menu__item"  href="../community"><i class="side-menu__icon fa fa-table"></i><span class="side-menu__label">社区</span></a>
+							
+						</li>
+						<li class="slide" id = "charger">
+							<a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-file-text"></i><span class="side-menu__label">管理员功能</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								 <li><a href="../usermanage" class="slide-item"> 用户管理</a></li>
+                                <li><a href="../community_m" class="slide-item"> 帖子管理</a></li>
+							</ul>
+						</li>
+					</ul>
+				</aside>
+
+				<div class="app-content">
+					<section class="section" >
+                    	<ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">帖子</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">详细内容</li>
+                        </ol>
+
+						<div class="row profile-card" >
+							<div class="col-lg-7 col- md-12 col-sm-12">
+								<div class="card" style = "position:relative;left:250px">
+									<div class="card-body">
+										{% for myPost in post %}
+                                        <div class="">
+											<div class="col-md-12">
+												<div class="media mt-0">
+													<div class="media-left"> <a href="javascript:void(0)"> <img src="{% static 'assets/img/avatar/avatar-2.jpeg.jpg' %}" alt="" class="media-object"> </a> </div>
+													<div class="media-body">
+														<h4 class="media-heading">{{ myPost.postName}}<br>
+														<small class="text-muted"><i class="fa fa-clock-o"></i> {{ myPost.postTime }}</small> </h4>
+														<p>{{ myPost.postContent }} </p>
+{#														<ul class="nav nav-pills pull-left">#}
+{#															<li><a href="" title=""><i class="fa fa-thumbs-o-up"></i> {{ myPost.postThumbUp }}</a></li>#}
+{#															<li><a href="" title=""><i class="fa fa-commenting-o"></i> {{ myPost.postComment }}</a></li>#}
+{#														</ul>#}
+													</div>
+												</div>
+											</div>
+                                            {% for comment in comments %}
+											<div class="col-md-12 commentsblock mt-2 pb-2">
+												<div class="media">
+													<div class="media-left"> <a href="javascript:void(0)"> <img alt="64x64" src="{% static 'assets/img/avatar/avatar-3.jpeg.jpg' %}" class="media-object"> </a> </div>
+													<div class="media-body">
+{#														<h4 class="media-heading">Astha Smith</h4>#}
+														<p>{{ comment.commentContent }}</p>
+													</div>
+												</div>
+											</div>
+                                            {% endfor %}
+										</div>
+                                        {% endfor %}
+									</div>
+								</div>
+                                {% for myPost in post %}
+								<div class="card" style = "position:relative;left:250px">
+									<div class="card-body">
+										<div class=" border">
+											<div class="col-md-12">
+												<div class="media ">
+													<div class="media-left"> <a href="javascript:void(0)"> <img src="{% static 'assets/img/avatar/avatar-2.jpeg.jpg' %}" alt="" class="media-object"> </a> </div>
+													<div class="media-body">
+														<h4 class="media-heading">{{ myPost.postName }}<br>
+														<small class="text-muted"><i class="fa fa-clock-o"></i> {{ myPost.postTime }}</small> </h4>
+														<p>{{ myPost.postContent }}</p>
+{#														<ul class="nav nav-pills pull-left">#}
+{#															<li><a href="" title="" id="{{ myPost.postThumbUp }}" onclick="function1(id)" ><i class="fa fa-thumbs-o-up" ></i>{{ myPost.postThumbUp }}</a></li>#}
+{#															<li><a href="" title=""><i class="fa fa-commenting-o" ></i> {{ myPost.postComment }}</a></li>#}
+{#														</ul>#}
+													</div>
+												</div>
+											</div>
+											<div class="col-md-12 ">
+												<div class="status-upload mt-2 mb-3 d-inline-block w-100">
+                                                    <form>
+                                                        <form action="" method="post">
+                                                            {% csrf_token %}
+                                                            <label>回复</label>
+                                                            <textarea name="content" class="form-control" placeholder="在这里回复"></textarea>
+                                                            <br>
+                                                            <button type="submit" class="btn btn-primary btn-sm pull-right" href="">确定</button>
+                                                        </form>
+                                                    </form>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+                            {% endfor %}
+							</div>
+
+						</div>
+					</section>
+				</div>
+
+			</div>
+		</div>
+
+
+
+        <script>
+            function function1(id) {
+                alert("WTF");
+                id=id+1;
+                alert({{ myPost.postThumbUp }});
+                alert("WTF");
+            }
+        </script>
+
+		<!--Jquery.min js-->
+		<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+
+		<!--popper js-->
+		<script src="{% static 'assets/js/popper.js' %}"></script>
+
+		<!--Tooltip js-->
+		<script src="{% static 'assets/js/tooltip.js' %}"></script>
+
+		<!--Bootstrap.min js-->
+		<script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+		<!--Jquery.nicescroll.min js-->
+		<script src="{% static 'assets/plugins/nicescroll/jquery.nicescroll.min.js' %}"></script>
+
+		<!--Scroll-up-bar.min js-->
+		<script src="{% static 'assets/plugins/scroll-up-bar/dist/scroll-up-bar.min.js' %}"></script>
+
+		<!--mCustomScrollbar js-->
+		<script src="{% static 'assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+
+		<!--Sidemenu js-->
+		<script src="{% static 'assets/plugins/toggle-menu/sidemenu.js' %}"></script>
+
+		<!--Scripts js-->
+		<script src="{% static 'assets/js/scripts.js' %}"></script>
+
+        <script>
+            var charger = {{ charger }}
+            if(charger === 1) {
+                document.getElementById("charger").style.visibility = "visible";
+            }
+            else {
+                document.getElementById("charger").style.visibility = "hidden";
+            }
+        </script>
+
+	</body>
+</html>

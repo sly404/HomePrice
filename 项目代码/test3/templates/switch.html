@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+	<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Kharna-Admin Dashboard</title>
+
+		<!--favicon -->
+		<link rel="icon" href="{% static 'assets/img/favicon.ico'%}" type="image/x-icon"/>
+
+		<!--Bootstrap.min css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+
+		<!--Icons css-->
+		<link rel="stylesheet" href="{% static 'assets/css/icons.css' %}">
+
+		<!--Style css-->
+		<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+		<!--mCustomScrollbar css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/scroll-bar/jquery.mCustomScrollbar.css' %}">
+
+		<!--Sidemenu css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/toggle-menu/sidemenu.css' %}">
+
+		<!--Bootstrap-daterangepicker css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/bootstrap-daterangepicker/daterangepicker.css' %}">
+
+		<!--Bootstrap-datepicker css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/bootstrap-datepicker/bootstrap-datepicker.css' %}">
+
+		<!--iCheck css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/iCheck/all.css' %}">
+
+		<!--Bootstrap-colorpicker css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/bootstrap-colorpicker/bootstrap-colorpicker.min.css' %}">
+
+		<!--Bootstrap-timepicker css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/bootstrap-timepicker/bootstrap-timepicker.min.css' %}">
+
+		<!--Select2 css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/select2/select2.css' %}">
+
+	</head>
+
+	<body class="app ">
+
+		<div id="spinner"></div>
+
+		<div id="app">
+			<div class="main-wrapper" >
+			
+			
+				<nav class="navbar navbar-expand-lg main-navbar">
+					<a class="header-brand" href="../index">
+						<img src="{% static 'assets/img/brand/logo.png' %}" class="header-brand-img" alt="Kharna-Admin  logo">
+					</a>
+					<form class="form-inline mr-auto">
+						<ul class="navbar-nav mr-3">
+							<li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a></li>
+							<li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"><i class="ion ion-search"></i></a></li>
+						</ul>
+					</form>
+					<ul class="navbar-nav navbar-right">
+						<li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="ion-ios-email-outline"></i></a>
+							<div class="dropdown-menu dropdown-list dropdown-menu-right">
+								<div class="dropdown-header">Messages
+									<div class="float-right">
+										<a href="#">View All</a>
+									</div>
+								</div>
+								<div class="dropdown-list-content">
+									<a href="#" class="dropdown-item dropdown-item-unread">
+										<img alt="image" src="{% static 'assets/img/avatar/avatar-1.jpeg' %}" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Stewart Ball</b>
+													<p>Your template awesome</p>
+												</div>
+												<div class="time">6 hours ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item dropdown-item-unread">
+										<img alt="image" src="{% static 'assets/img/avatar/avatar-2.jpeg' %}" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Jonathan North</b>
+													<p>Your Order Shipped.....</p>
+												</div>
+												<div class="time">45 mins ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<img alt="image" src="{% static 'assets/img/avatar/avatar-4.jpeg' %}" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Victor Taylor</b>
+													<p>Hi!, I' am web developer</p>
+												</div>
+												<div class="time"> 8 hours ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<img alt="image" src="{% static 'assets/img/avatar/avatar-3.jpeg' %}" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Ruth	Arnold</b>
+													<p>Hi!, I' am web designer</p>
+												</div>
+												<div class="time"> 3 hours ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<img alt="image" src="{% static 'assets/img/avatar/avatar-5.jpeg' %}" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Sam	Lyman</b>
+													<p>Hi!, I' am java developer</p>
+												</div>
+												<div class="time"> 15 mintues ago</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</li>
+						<li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link  nav-link-lg beep"><i class="ion-ios-bell-outline"></i></a>
+							<div class="dropdown-menu dropdown-list dropdown-menu-right">
+								<div class="dropdown-header">Notifications
+									<div class="float-right">
+										<a href="#">View All</a>
+									</div>
+								</div>
+								<div class="dropdown-list-content">
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-users text-primary"></i>
+										<div class="dropdown-item-desc">
+											<b>So many Users Visit your template</b>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-exclamation-triangle text-danger"></i>
+										<div class="dropdown-item-desc">
+											<b>Error message occurred....</b>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-users text-warning"></i>
+										<div class="dropdown-item-desc">
+											<b> Adding new people</b>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-shopping-cart text-success"></i>
+										<div class="dropdown-item-desc">
+											<b>Your items Arrived</b>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-comment text-primary"></i>
+										<div class="dropdown-item-desc">
+											<b>New Message received</b> <div class="float-right"><span class="badge badge-pill badge-danger badge-sm">67</span></div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-users text-primary"></i>
+										<div class="dropdown-item-desc">
+											<b>So many Users Visit your template</b>
+										</div>
+									</a>
+								</div>
+							</div>
+						</li>
+						<li class="dropdown dropdown-list-toggle">
+							<a href="#" class="nav-link nav-link-lg full-screen-link">
+								<i class="ion-arrow-expand"  id="fullscreen-button"></i>
+							</a>
+						</li>
+						<li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
+							<img src="{% static 'assets/img/avatar/avatar-1.jpeg' %}" alt="profile-user" class="rounded-circle w-32">
+							<div class="d-sm-none d-lg-inline-block">我</div></a>
+							<div class="dropdown-menu dropdown-menu-right">
+								<a href="../profile" class="dropdown-item has-icon">
+									<i class="ion ion-android-person"></i>简介
+								</a>
+								<a href="../profile" class="dropdown-item has-icon">
+									<i class="ion-android-drafts"></i> 消息
+								</a>
+								<a href="../profile" class="dropdown-item has-icon">
+									<i class="ion ion-gear-a"></i> 设置
+								</a>
+								<a href="#" class="dropdown-item has-icon">
+									<i class="ion-ios-redo"></i>退出登录
+								</a>
+							</div>
+						</li>
+					</ul>
+				</nav>
+
+				<aside class="app-sidebar">
+					<div class="app-sidebar__user">
+					    <div class="dropdown">
+							<a class="nav-link pl-2 pr-2 leading-none d-flex" data-toggle="dropdown" href="#">
+								<img alt="image" src="{% static 'assets/img/avatar/avatar-1.jpeg' %}" class=" avatar-md rounded-circle">
+								<span class="ml-2 d-lg-block">
+									<span class="text-white app-sidebar__user-name mt-5">菜单栏</span><br>
+									<span class="text-muted app-sidebar__user-name text-sm">选择您想要的功能</span>
+								</span>
+							</a>
+						</div>
+					</div>
+					<ul class="side-menu">
+						<li class="slide">
+							<a class="side-menu__item" href="../index"><i class="side-menu__icon fa fa-desktop"></i><span class="side-menu__label">主页</span></a>
+						</li>
+						<li>
+							<a class="side-menu__item" href="../recommend"><i class="side-menu__icon fa fa-flask"></i><span class="side-menu__label">房源推荐</span></a>
+						</li>
+						<li class="slide">
+							<a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-tasks"></i><span class="side-menu__label">房价信息</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li><a href="../houseinfo" class="slide-item"> 城市房价</a></li>
+								<li><a href="../compare" class="slide-item"> 房价对比</a></li>
+								
+							</ul>
+						</li>
+						<li class="slide">
+						    <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-paw"></i><span class="side-menu__label">房价分析</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li><a href="../ranking" class="slide-item"> 房价排行</a></li>
+								<li><a href="../predict" class="slide-item">房价预测</a></li>
+							</ul>
+						</li>
+						<li class="slide">
+							<a class="side-menu__item" href="../community"><i class="side-menu__icon fa fa-table"></i><span class="side-menu__label">社区</span></a>
+						</li>
+						<li class="slide" id = "charger">
+							<a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-file-text"></i><span class="side-menu__label">管理员功能</span></a>
+							<ul class="slide-menu">
+								<li><a href="../datamanage" class="slide-item"> 数据管理</a></li>
+								<li><a href="../switch" class="slide-item"> 开关功能</a></li>
+								<li><a href="../usermanage" class="slide-item"> 用户管理</a></li>
+								<li><a href="../community_m" class="slide-item"> 帖子管理</a></li>
+							</ul>
+						</li>
+					</ul>
+				</aside>
+
+
+				<div class="app-content">
+					<section class="section">
+                    	
+						
+						
+						
+						<div class="card"><!--社区功能-->
+							<div class="card-header">
+								<h4>社区</h4>
+							</div>
+							<div class="card-body">
+										
+								<div class="card-body">
+								<div class="row">
+									<div class="col-12 col-sm-12 col-md-4">
+										<ul class="nav nav-pills flex-column" id="myTab4" role="tablist">
+											<li class="nav-item">
+												<a class="nav-link active show" id="home-tab4" data-toggle="tab" href="#home4" role="tab" aria-controls="home" aria-selected="true">开启社区</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" id="profile-tab4" data-toggle="tab" href="#profile4" role="tab" aria-controls="profile" aria-selected="false">关闭社区</a>
+											</li>
+										</ul>
+									</div>
+									<div class="col-12 col-sm-12 col-md-8">
+										<div class="tab-content border p-3" id="myTab3Content">
+											<div class="tab-pane fade p-0 active show" id="home4" role="tabpanel" aria-labelledby="home-tab4">
+												社区处于开启状态
+											</div>
+											<div class="tab-pane fade p-0" id="profile4" role="tabpanel" aria-labelledby="profile-tab4">
+												社区处于关闭状态
+											</div>
+										</div>
+									</div>
+								</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="card"><!--房价预测功能-->
+							<div class="card-header">
+								<h4>房价预测</h4>
+							</div>
+							<div class="card-body">
+										
+								<div class="card-body">
+								<div class="row">
+									<div class="col-12 col-sm-12 col-md-4">
+										<ul class="nav nav-pills flex-column" id="myTab5" role="tablist">
+											<li class="nav-item">
+												<a class="nav-link active show" id="home-tab5" data-toggle="tab" href="#home5" role="tab" aria-controls="home" aria-selected="true">开启房价预测</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" id="profile-tab5" data-toggle="tab" href="#profile5" role="tab" aria-controls="profile" aria-selected="false">关闭房价预测</a>
+											</li>
+										</ul>
+									</div>
+									<div class="col-12 col-sm-12 col-md-8">
+										<div class="tab-content border p-3" id="myTab3Content">
+											<div class="tab-pane fade p-0 active show" id="home5" role="tabpanel" aria-labelledby="home-tab5">
+												房价预测可用
+											</div>
+											<div class="tab-pane fade p-0" id="profile5" role="tabpanel" aria-labelledby="profile-tab5">
+												房价预测不可用
+											</div>
+										</div>
+									</div>
+								</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="card"><!--房价查询功能-->
+							<div class="card-header">
+								<h4>房价查询</h4>
+							</div>
+							<div class="card-body">
+										
+								<div class="card-body">
+								<div class="row">
+									<div class="col-12 col-sm-12 col-md-4">
+										<ul class="nav nav-pills flex-column" id="myTab6" role="tablist">
+											<li class="nav-item">
+												<a class="nav-link active show" id="home-tab6" data-toggle="tab" href="#home6" role="tab" aria-controls="home" aria-selected="true">开启房价查询</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" id="profile-tab6" data-toggle="tab" href="#profile6" role="tab" aria-controls="profile" aria-selected="false">关闭房价查询</a>
+											</li>
+										</ul>
+									</div>
+									<div class="col-12 col-sm-12 col-md-8">
+										<div class="tab-content border p-3" id="myTab3Content">
+											<div class="tab-pane fade p-0 active show" id="home6" role="tabpanel" aria-labelledby="home-tab6">
+												房价查询可用
+											</div>
+											<div class="tab-pane fade p-0" id="profile6" role="tabpanel" aria-labelledby="profile-tab6">
+												房价查询不可用
+											</div>
+										</div>
+									</div>
+								</div>
+								</div>
+							</div>
+						</div>
+						
+						
+						
+						
+						
+						
+						
+						
+						
+					</section>
+				</div>
+
+				<footer class="main-footer">
+					<div class="text-center">
+						Copyright &copy;Kharna-Admin 2018. Design By<a href="https://spruko.com/"> Spruko</a>
+					</div>
+				</footer>
+
+			</div>
+		</div>
+
+		<!--Jquery.min js-->
+		<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+
+		<!--popper js-->
+		<script src="{% static 'assets/js/popper.js' %}"></script>
+
+		<!--Tooltip js-->
+		<script src="{% static 'assets/js/tooltip.js' %}"></script>
+
+		<!--Bootstrap.min js-->
+		<script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+		<!--Jquery.nicescroll.min js-->
+		<script src="{% static 'assets/plugins/nicescroll/jquery.nicescroll.min.js' %}"></script>
+
+		<!--Scroll-up-bar.min js-->
+		<script src="{% static 'assets/plugins/scroll-up-bar/dist/scroll-up-bar.min.js' %}"></script>
+
+		<!--Sidemenu js-->
+		<script src="{% static 'assets/plugins/toggle-menu/sidemenu.js' %}"></script>
+
+		<!--Select2 js-->
+		<script src="{% static 'assets/plugins/select2/select2.full.js' %}"></script>
+
+		<!--Inputmask js-->
+		<script src="{% static 'assets/plugins/inputmask/jquery.inputmask.js' %}"></script>
+
+		<!--Moment js-->
+		<script src="{% static 'assets/plugins/moment/moment.min.js' %}"></script>
+
+		<!--Bootstrap-daterangepicker js-->
+		<script src="{% static 'assets/plugins/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
+
+		<!--Bootstrap-datepicker js-->
+		<script src="{% static 'assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js' %}"></script>
+
+		<!--Bootstrap-colorpicker js-->
+		<script src="{% static 'assets/plugins/bootstrap-colorpicker/bootstrap-colorpicker.min.js' %}"></script>
+
+		<!--Bootstrap-timepicker js-->
+		<script src="{% static 'assets/plugins/bootstrap-timepicker/bootstrap-timepicker.js' %}"></script>
+
+		<!--mCustomScrollbar js-->
+		<script src="{% static 'assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+
+		<!--iCheck js-->
+		<script src="{% static 'assets/plugins/iCheck/icheck.min.js' %}"></script>
+
+		<!--forms js-->
+		<script src="{% static 'assets/js/forms.js' %}"></script>
+
+		<!--Scripts js-->
+		<script src="{% static 'assets/js/scripts.js' %}"></script>
+
+        <script>
+            var charger = {{ charger }}
+            if(charger === 1) {
+                document.getElementById("charger").style.visibility = "visible";
+            }
+            else {
+                document.getElementById("charger").style.visibility = "hidden";
+            }
+        </script>
+
+	</body>
+</html>

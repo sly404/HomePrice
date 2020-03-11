@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kharna-Admin Dashboard</title>
+
+    <!--Favicon -->
+    <link rel="icon" href="{% static 'assets/img/favicon.ico' %}" type="image/x-icon"/>
+
+    <!--Bootstrap.min css-->
+    <link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+
+    <!--Icons css-->
+    <link rel="stylesheet" href="{% static 'assets/css/icons.css' %}">
+
+    <!--Style css-->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+    <!--mCustomScrollbar css-->
+    <link rel="stylesheet" href="{% static 'assets/plugins/scroll-bar/jquery.mCustomScrollbar.css' %}">
+
+    <!--Sidemenu css-->
+    <link rel="stylesheet" href="{% static 'assets/plugins/toggle-menu/sidemenu.css' %}">
+
+</head>
+
+<body class="bg-primary">
+<div id="app">
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="single-page construction-bg single-pageimage cover-image"
+                     data-image-src="assets/img/news/img14.jpg">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="wrapper wrapper2">
+                                <form class="card-body" tabindex="500">
+                                    <form action="" method="post">
+                                        {% csrf_token %}
+                                        <h3>账号注册</h3>
+                                        <div class="mail">
+                                            <input type="text" name="username"/>
+                                            <label>用户名</label>
+                                        </div>
+                                        <div class="passwd">
+                                            <input type="password" name="pwd1"/>
+                                            <label>登录密码</label>
+                                        </div>
+                                        <div class="passwd">
+                                            <input type="password" name="pwd2"/>
+                                            <label>确认密码</label>
+                                        </div>
+                                        <div>
+                                            <p class="text-dark mb-0">{{ errorMsg }}</p>
+                                        </div>
+                                        <div>
+                                            <input type="submit" value="注册" class="btn btn-primary btn-block"
+                                                   href="../login"/>
+                                        </div>
+                                    </form>
+                                </form>
+                                <div class="card-body border-top">
+                                    <a class="btn  btn-social btn-google btn-block"><i><!--添加图标--></i> 使用微博登录</a>
+                                    <a class="btn  btn-social btn-facebook btn-block mt-2"><i><!--添加图标--></i> 使用QQ登录</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="log-wrapper ">
+                                <div class="log-wrapper text-center ">
+                                    <img src="{% static 'assets/img/brand/logo-white.png' %}" class="mb-2 mt-4 mt-lg-0 "
+                                         alt="logo">
+                                    <p>第一手房产价格信息 房价波动分析 城市房价走向预测</p>
+                                    <a class="btn btn-primary mt-3" href="../index">了解详情</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!--Jquery.min js-->
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+
+<!--popper js-->
+<script src="{% static 'assets/js/popper.js' %}"></script>
+
+<!--Tooltip js-->
+<script src="{% static 'assets/js/tooltip.js' %}"></script>
+
+<!--Bootstrap.min js-->
+<script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+<!--Jquery.nicescroll.min js-->
+<script src="{% static 'assets/plugins/nicescroll/jquery.nicescroll.min.js' %}"></script>
+
+<!--Scroll-up-bar.min js-->
+<script src="{% static 'assets/plugins/scroll-up-bar/dist/scroll-up-bar.min.js' %}"></script>
+
+<script src="{% static 'assets/js/moment.min.js' %}"></script>
+
+<!--mCustomScrollbar js-->
+<script src="{% static 'assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+
+<!--Sidemenu js-->
+<script src="{% static 'assets/plugins/toggle-menu/sidemenu.js' %}"></script>
+
+<!--Scripts js-->
+<script src="{% static 'assets/js/scripts.js' %}"></script>
+
+
+</body>
+</html>

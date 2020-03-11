@@ -1,0 +1,39 @@
+.ac_results {
+border:1px solid #c4cfe1;background:#fff;color:#F60;line-height:22px;
+}
+
+.ac_results li{
+	color:#3366cc;
+}
+
+.ac_results li span{
+
+	font-weight:normal;
+	float:right;
+	/*color:#008000;*/
+}
+
+.ac_results li b{
+	
+	display:none;
+	
+}
+
+
+.ac_loading {
+	/*background: white url('indicator.gif') right center no-repeat;*/
+}
+
+.ac_odd {
+	/*background-color: #fff;*/
+}
+
+.ac_over {
+	background-color: #d0e2f9;
+	cursor:pointer;
+}
+
+.ac_over li{
+	color:#fff;
+}
+

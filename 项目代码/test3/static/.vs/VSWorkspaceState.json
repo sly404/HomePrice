@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\assets",
+    "\\assets\\js",
+    "\\assets\\plugins",
+    "\\assets\\plugins\\Chart.js",
+    "\\assets\\plugins\\Chart.js\\dist",
+    "\\assets\\plugins\\chartist",
+    "\\assets\\plugins\\echarts",
+    "\\assets\\plugins\\echarts\\dist",
+    "\\js"
+  ],
+  "SelectedNode": "\\assets\\js\\chartjs.js",
+  "PreviewInSolutionExplorer": false
+}

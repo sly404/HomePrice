@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Kharna-Admin Dashboard</title>
+		<!--favicon -->
+		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+
+		<!--Bootstrap.min css-->
+		<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+
+		<!--Icons css-->
+		<link rel="stylesheet" href="assets/css/icons.css">
+
+		<!--mCustomScrollbar css-->
+		<link rel="stylesheet" href="assets/plugins/scroll-bar/jquery.mCustomScrollbar.css">
+
+		<!--Style css-->
+		<link rel="stylesheet" href="assets/css/style.css">
+
+		<!--Sidemenu css-->
+		<link rel="stylesheet" href="assets/plugins/toggle-menu/sidemenu.css">
+
+	</head>
+
+	<body class="app ">
+
+		<div id="spinner"></div>
+
+		<div id="app">
+			<div class="main-wrapper" >
+				<nav class="navbar navbar-expand-lg main-navbar">
+					<a class="header-brand" href="index.html">
+						<img src="assets/img/brand/logo.png" class="header-brand-img" alt="Kharna-Admin  logo">
+					</a>
+					<form class="form-inline mr-auto">
+						<ul class="navbar-nav mr-3">
+							<li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a></li>
+							<li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"><i class="ion ion-search"></i></a></li>
+						</ul>
+						<div class="search-element">
+							<input class="form-control" type="search" placeholder="Search" aria-label="Search">
+							<button class="btn btn-primary" type="submit"><i class="ion ion-search"></i></button>
+						</div>
+					</form>
+					<ul class="navbar-nav navbar-right">
+						<li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="ion-ios-email-outline"></i></a>
+							<div class="dropdown-menu dropdown-list dropdown-menu-right">
+								<div class="dropdown-header">Messages
+									<div class="float-right">
+										<a href="#">View All</a>
+									</div>
+								</div>
+								<div class="dropdown-list-content">
+									<a href="#" class="dropdown-item dropdown-item-unread">
+										<img alt="image" src="assets/img/avatar/avatar-1.jpeg" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Stewart Ball</b>
+													<p>Your template awesome</p>
+												</div>
+												<div class="time">6 hours ago</div>
+											</div>
+
+										</div>
+									</a>
+									<a href="#" class="dropdown-item dropdown-item-unread">
+										<img alt="image" src="assets/img/avatar/avatar-2.jpeg" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Jonathan North</b>
+													<p>Your Order Shipped.....</p>
+												</div>
+												<div class="time">45 mins ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<img alt="image" src="assets/img/avatar/avatar-4.jpeg" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Victor Taylor</b>
+													<p>Hi!, I' am web developer</p>
+												</div>
+												<div class="time"> 8 hours ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<img alt="image" src="assets/img/avatar/avatar-3.jpeg" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Ruth	Arnold</b>
+													<p>Hi!, I' am web designer</p>
+												</div>
+												<div class="time"> 3 hours ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<img alt="image" src="assets/img/avatar/avatar-5.jpeg" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Sam	Lyman</b>
+													<p>Hi!, I' am java developer</p>
+												</div>
+												<div class="time"> 15 mintues ago</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</li>
+						<li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link  nav-link-lg beep"><i class="ion-ios-bell-outline"></i></a>
+							<div class="dropdown-menu dropdown-list dropdown-menu-right">
+								<div class="dropdown-header">Notifications
+									<div class="float-right">
+										<a href="#">View All</a>
+									</div>
+								</div>
+								<div class="dropdown-list-content">
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-users text-primary"></i>
+										<div class="dropdown-item-desc">
+											<b>So many Users Visit your template</b>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-exclamation-triangle text-danger"></i>
+										<div class="dropdown-item-desc">
+											<b>Error message occurred....</b>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-users text-warning"></i>
+										<div class="dropdown-item-desc">
+											<b> Adding new people</b>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-shopping-cart text-success"></i>
+										<div class="dropdown-item-desc">
+											<b>Your items Arrived</b>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-comment text-primary"></i>
+										<div class="dropdown-item-desc">
+											<b>New Message received</b> <div class="float-right"><span class="badge badge-pill badge-danger badge-sm">67</span></div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-users text-primary"></i>
+										<div class="dropdown-item-desc">
+											<b>So many Users Visit your template</b>
+										</div>
+									</a>
+								</div>
+							</div>
+						</li>
+						<li class="dropdown dropdown-list-toggle">
+							<a href="#" class="nav-link nav-link-lg full-screen-link">
+								<i class="ion-arrow-expand"  id="fullscreen-button"></i>
+							</a>
+						</li>
+						<li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
+							<img src="assets/img/avatar/avatar-1.jpeg" alt="profile-user" class="rounded-circle w-32">
+							<div class="d-sm-none d-lg-inline-block">Jessica Lee</div></a>
+							<div class="dropdown-menu dropdown-menu-right">
+								<a href="profile.html" class="dropdown-item has-icon">
+									<i class="ion ion-android-person"></i> Profile
+								</a>
+								<a href="profile.html" class="dropdown-item has-icon">
+									<i class="ion-android-drafts"></i> Messages
+								</a>
+								<a href="profile.html" class="dropdown-item has-icon">
+									<i class="ion ion-gear-a"></i> Settings
+								</a>
+								<a href="#" class="dropdown-item has-icon">
+									<i class="ion-ios-redo"></i> Logout
+								</a>
+							</div>
+						</li>
+					</ul>
+				</nav>
+
+				<aside class="app-sidebar">
+					<div class="app-sidebar__user">
+					    <div class="dropdown">
+							<a class="nav-link pl-2 pr-2 leading-none d-flex" data-toggle="dropdown" href="#">
+								<img alt="image" src="assets/img/avatar/avatar-1.jpeg" class=" avatar-md rounded-circle">
+								<span class="ml-2 d-lg-block">
+									<span class="text-white app-sidebar__user-name mt-5">Jessica Lee</span><br>
+									<span class="text-muted app-sidebar__user-name text-sm"> Web-Designer</span>
+								</span>
+							</a>
+						</div>
+					</div>
+					<ul class="side-menu">
+						<li class="slide">
+							<a class="side-menu__item"  data-toggle="slide" href="#"><i class="side-menu__icon fa fa-desktop"></i><span class="side-menu__label">Dashboard</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li><a class="slide-item"  href="index.html"><span>Dashboard 01</span></a></li>
+								<li><a class="slide-item" href="index2.html"><span>Dashboard 02</span></a></li>
+								<li><a class="slide-item" href="index3.html"><span>Dashboard 03</span></a></li>
+							</ul>
+						</li>
+						<li>
+							<a class="side-menu__item" href="recommend.html"><i class="side-menu__icon fa fa-flask"></i><span class="side-menu__label">Widgets</span></a>
+						</li>
+						<li class="slide">
+							<a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-tasks"></i><span class="side-menu__label">UI Elements</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li><a href="houseinfo.html" class="slide-item"> Elements</a></li>
+								<li><a href="compare.html" class="slide-item"> Buttons</a></li>
+								<li><a href="toastr.html" class="slide-item"> Toastr</a></li>
+								<li><a href="calender.html" class="slide-item"> Calendar</a></li>
+								<li><a href="rangesliders.html" class="slide-item"> Rangeslider</a></li>
+								<li><a href="modals.html" class="slide-item"> Modals</a></li>
+								<li><a href="timeline.html" class="slide-item"> Timeline</a></li>
+								<li><a href="invoice.html" class="slide-item"> Invoice</a></li>
+								<li><a href="users.html" class="slide-item"> Users List</a></li>
+								<li><a href="mailinbox.html" class="slide-item"> Mail-inbox</a></li>
+								<li><a href="mail-compose.html" class="slide-item"> Mail-Compose</a></li>
+							</ul>
+						</li>
+						<li class="slide">
+						    <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-paw"></i><span class="side-menu__label">Icons</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li><a href="icons-ion.html" class="slide-item"> Ion Icons</a></li>
+								<li><a href="icons-fontawesome.html" class="slide-item"> Font Awesome</a></li>
+								<li><a href="icons-feather.html" class="slide-item"> Feather Awesome</a></li>
+								<li><a href="icons-materialdesign.html" class="slide-item"> Material Design</a></li>
+								<li><a href="icons-themify.html" class="slide-item"> Themify</a></li>
+								<li><a href="icons-simpleline.html" class="slide-item"> Simple line</a></li>
+								<li><a href="icons-pe7.html" class="slide-item"> pe7</a></li>
+								<li><a href="icons-flag.html" class="slide-item"> Flag Icons</a></li>
+								<li><a href="icons-weather.html" class="slide-item"> Weather Icons</a></li>
+								<li><a href="icons-typicons.html" class="slide-item"> Typicons</a></li>
+							</ul>
+						</li>
+						<li class="slide">
+							<a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-table"></i><span class="side-menu__label">Tables</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li><a href="table.html" class="slide-item">Basic Tables</a></li>
+								<li><a href="datatables.html" class="slide-item"> Data Tables</a></li>
+							</ul>
+						</li>
+						<li class="slide">
+							<a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-file-text"></i><span class="side-menu__label">Forms</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li><a href="datamanage.html" class="slide-item"> Form Elements</a></li>
+								<li><a href="switch.html" class="slide-item"> Advanced Form</a></li>
+								<li><a href="usermanage.html" class="slide-item"> Form Editor</a></li>
+							</ul>
+						</li>
+						<li class="slide">
+							<a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-bar-chart"></i><span class="side-menu__label">Charts</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li><a href="chartjs.html" class="slide-item">Chart Js</a></li>
+								<li><a href="flotcharts.html" class="slide-item"> Flot Charts</a></li>
+								<li><a href="barcharts.html" class="slide-item"> Bar Charts</a></li>
+								<li><a href="echart.html" class="slide-item"> ECharts</a></li>
+								<li><a href="chartist.html" class="slide-item"> Chartist</a></li>
+								<li><a href="morris.html" class="slide-item"> Morris Charts</a></li>
+								<li><a href="othercharts.html" class="slide-item"> Other Charts</a></li>
+							</ul>
+						</li>
+						<li class="slide">
+							<a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-map"></i><span class="side-menu__label">Maps</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li><a href="maps.html" class="slide-item"> Google Maps</a></li>
+								<li><a href="vector-map.html" class="slide-item">Vector Maps</a></li>
+							</ul>
+						</li>
+						<li class="slide">
+							<a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-pie-chart"></i><span class="side-menu__label">Pages</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li><a href="profile.html" class="slide-item"> Profile</a></li>
+								<li><a href="pricing-tables.html" class="slide-item"> Pricing Tables</a></li>
+								<li><a href="gallery.html" class="slide-item"> Gallery</a></li>
+								<li><a href="shop.html" class="slide-item"> Shop</a></li>
+								<li><a href="shop-cart.html" class="slide-item"> Shop Cart</a></li>
+								<li><a href="terms.html" class="slide-item"> Terms and Conditions</a></li>
+								<li><a href="register.html" class="slide-item"> Register</a></li>
+								<li><a href="login.html" class="slide-item"> Login</a></li>
+								<li><a href="forgot.html" class="slide-item"> Forgot Password</a></li>
+								<li><a href="reset.html" class="slide-item"> Reset Password</a></li>
+								<li><a href="under-construction.html" class="slide-item"> Under Construction</a></li>
+								<li><a href="lockscreen.html" class="slide-item"> Lock Screen</a></li>
+								<li><a href="404.html" class="slide-item"> 404</a></li>
+								<li><a href="505.html" class="slide-item"> 505</a></li>
+								<li><a href="emptypage.html" class="slide-item"> Empty  Page</a></li>
+							</ul>
+						</li>
+					</ul>
+				</aside>
+
+				<div class="app-content">
+					<section class="section">
+                    	<ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">UI Elements</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Users</li>
+                        </ol>
+
+						<div class="section-body ">
+
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="e-panel card">
+										<div class="card-header">
+											<h4>Users</h4>
+										</div>
+										<div class="card-body">
+											<div class="e-table">
+												<div class="table-responsive table-lg">
+													<table class="table table-bordered">
+														<thead>
+															<tr>
+																<th  class="text-center">
+
+																</th>
+																<th class="text-center">Photo</th>
+																<th >Name</th>
+																<th>Date</th>
+																<th></th>
+																<th class="text-center">Actions</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td class="align-middle text-center">
+																	<div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0 align-top">
+																		<input class="custom-control-input" id="item-1" type="checkbox"> <label class="custom-control-label" for="item-1"></label>
+																	</div>
+																</td>
+																<td class="align-middle text-center"><img alt="image" class="avatar avatar-md rounded-circle" src="assets/img/avatar/avatar-1.jpeg"></td>
+																<td class="text-nowrap align-middle">Adam Cotter</td>
+																<td class="text-nowrap align-middle"><span>09 Dec 2017</span></td>
+																<td class="text-center align-middle">
+																	<label class="custom-switch">
+																		<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+																		<span class="custom-switch-indicator"></span>
+																	</label>
+																</td>
+																<td class="text-center align-middle">
+																	<div class="btn-group align-top">
+																		<button class="btn btn-sm btn-primary badge" data-target="#user-form-modal" data-toggle="modal" type="button">Edit</button> <button class="btn btn-sm btn-primary badge" type="button"><i class="fa fa-trash"></i></button>
+																	</div>
+																</td>
+															</tr>
+															<tr>
+																<td class="align-middle text-center">
+																	<div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0 align-top">
+																		<input class="custom-control-input" id="item-2" type="checkbox"> <label class="custom-control-label" for="item-2"></label>
+																	</div>
+																</td>
+																<td class="align-middle text-center"><img alt="image" class="avatar avatar-md rounded-circle" src="assets/img/avatar/avatar-2.jpeg"></td>
+																<td class="text-nowrap align-middle">Pauline Noble</td>
+																<td class="text-nowrap align-middle"><span>26 Jan 2018</span></td>
+																<td class="text-center align-middle">
+																	<label class="custom-switch">
+																		<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+																		<span class="custom-switch-indicator"></span>
+																	</label>
+																</td>
+																<td class="text-center align-middle">
+																	<div class="btn-group align-top">
+																		<button class="btn btn-sm btn-primary badge" data-target="#user-form-modal" data-toggle="modal" type="button">Edit</button> <button class="btn btn-sm btn-primary badge" type="button"><i class="fa fa-trash"></i></button>
+																	</div>
+																</td>
+															</tr>
+															<tr>
+																<td class="align-middle text-center">
+																	<div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0 align-top">
+																		<input class="custom-control-input" id="item-3" type="checkbox"> <label class="custom-control-label" for="item-3"></label>
+																	</div>
+																</td>
+																<td class="align-middle text-center"><img alt="image" class="avatar avatar-md rounded-circle" src="assets/img/avatar/avatar-3.jpeg"></td>
+																<td class="text-nowrap align-middle">Sherilyn Metzel</td>
+																<td class="text-nowrap align-middle"><span>27 Jan 2018</span></td>
+																<td class="text-center align-middle">
+																	<label class="custom-switch">
+																		<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+																		<span class="custom-switch-indicator"></span>
+																	</label>
+																</td>
+																<td class="text-center align-middle">
+																	<div class="btn-group align-top">
+																		<button class="btn btn-sm btn-primary badge" data-target="#user-form-modal" data-toggle="modal" type="button">Edit</button> <button class="btn btn-sm btn-primary badge" type="button"><i class="fa fa-trash"></i></button>
+																	</div>
+																</td>
+															</tr>
+															<tr>
+																<td class="align-middle text-center">
+																	<div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0 align-top">
+																		<input class="custom-control-input" id="item-4" type="checkbox"> <label class="custom-control-label" for="item-4"></label>
+																	</div>
+																</td>
+																<td class="align-middle text-center"><img alt="image" class="avatar avatar-md rounded-circle" src="assets/img/avatar/avatar-4.jpeg"></td>
+																<td class="text-nowrap align-middle">Terrie Boaler</td>
+																<td class="text-nowrap align-middle"><span>20 Jan 2018</span></td>
+																<td class="text-center align-middle">
+																	<label class="custom-switch">
+																		<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+																		<span class="custom-switch-indicator"></span>
+																	</label>
+																</td>
+																<td class="text-center align-middle">
+																	<div class="btn-group align-top">
+																		<button class="btn btn-sm btn-primary badge" data-target="#user-form-modal" data-toggle="modal" type="button">Edit</button> <button class="btn btn-sm btn-primary badge" type="button"><i class="fa fa-trash"></i></button>
+																	</div>
+																</td>
+															</tr>
+															<tr>
+																<td class="align-middle text-center">
+																	<div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0 align-top">
+																		<input class="custom-control-input" id="item-5" type="checkbox"> <label class="custom-control-label" for="item-5"></label>
+																	</div>
+																</td>
+																<td class="align-middle text-center"><img alt="image" class="avatar avatar-md rounded-circle" src="assets/img/avatar/avatar-5.jpeg"></td>
+																<td class="text-nowrap align-middle">Rutter Pude</td>
+																<td class="text-nowrap align-middle"><span>13 Jan 2018</span></td>
+																<td class="text-center align-middle">
+																	<label class="custom-switch">
+																		<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+																		<span class="custom-switch-indicator"></span>
+																	</label>
+																</td>
+																<td class="text-center align-middle">
+																	<div class="btn-group align-top">
+																		<button class="btn btn-sm btn-primary badge" data-target="#user-form-modal" data-toggle="modal" type="button">Edit</button> <button class="btn btn-sm btn-primary badge" type="button"><i class="fa fa-trash"></i></button>
+																	</div>
+																</td>
+															</tr>
+															<tr>
+																<td class="align-middle text-center">
+																	<div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0 align-top">
+																		<input class="custom-control-input" id="item-6" type="checkbox"> <label class="custom-control-label" for="item-6"></label>
+																	</div>
+																</td>
+																<td class="align-middle text-center"><img alt="image" class="avatar avatar-md rounded-circle" src="assets/img/avatar/avatar-4.jpeg"></td>
+																<td class="text-nowrap align-middle">Clifford Benjamin</td>
+																<td class="text-nowrap align-middle"><span>25 Jan 2018</span></td>
+																<td class="text-center align-middle">
+																	<label class="custom-switch">
+																		<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+																		<span class="custom-switch-indicator"></span>
+																	</label>
+																</td>
+																<td class="text-center align-middle">
+																	<div class="btn-group align-top">
+																		<button class="btn btn-sm btn-primary badge" data-target="#user-form-modal" data-toggle="modal" type="button">Edit</button> <button class="btn btn-sm btn-primary badge" type="button"><i class="fa fa-trash"></i></button>
+																	</div>
+																</td>
+															</tr>
+															<tr>
+																<td class="align-middle text-center">
+																	<div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0 align-top">
+																		<input class="custom-control-input" id="item-7" type="checkbox"> <label class="custom-control-label" for="item-7"></label>
+																	</div>
+																</td>
+																<td class="align-middle text-center"><img alt="image" class="avatar avatar-md rounded-circle" src="assets/img/avatar/avatar-1.jpeg"></td>
+																<td class="text-nowrap align-middle">Thedric Romans</td>
+																<td class="text-nowrap align-middle"><span>12 Jan 2018</span></td>
+																<td class="text-center align-middle">
+																	<label class="custom-switch">
+																		<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+																		<span class="custom-switch-indicator"></span>
+																	</label>
+																</td>
+																<td class="text-center align-middle">
+																	<div class="btn-group align-top">
+																		<button class="btn btn-sm btn-primary badge" data-target="#user-form-modal" data-toggle="modal" type="button">Edit</button> <button class="btn btn-sm btn-primary badge" type="button"><i class="fa fa-trash"></i></button>
+																	</div>
+																</td>
+															</tr>
+															<tr>
+																<td class="align-middle text-center">
+																	<div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0 align-top">
+																		<input class="custom-control-input" id="item-8" type="checkbox"> <label class="custom-control-label" for="item-8"></label>
+																	</div>
+																</td>
+																<td class="align-middle text-center"><img alt="image" class="avatar avatar-md rounded-circle" src="assets/img/avatar/avatar-2.jpeg"></td>
+																<td class="text-nowrap align-middle">Haily Carthew</td>
+																<td class="text-nowrap align-middle"><span>27 Jan 2018</span></td>
+																<td class="text-center align-middle">
+																	<label class="custom-switch">
+																		<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+																		<span class="custom-switch-indicator"></span>
+																	</label>
+																</td>
+																<td class="text-center align-middle">
+																	<div class="btn-group align-top">
+																		<button class="btn btn-sm btn-primary badge" data-target="#user-form-modal" data-toggle="modal" type="button">Edit</button> <button class="btn btn-sm btn-primary badge" type="button"><i class="fa fa-trash"></i></button>
+																	</div>
+																</td>
+															</tr>
+															<tr>
+																<td class="align-middle text-center">
+																	<div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0 align-top">
+																		<input class="custom-control-input" id="item-9" type="checkbox"> <label class="custom-control-label" for="item-9"></label>
+																	</div>
+																</td>
+																<td class="align-middle text-center"><img alt="image" class="avatar avatar-md rounded-circle" src="assets/img/avatar/avatar-2.jpeg"></td>
+																<td class="text-nowrap align-middle">Dorothea Joicey</td>
+																<td class="text-nowrap align-middle"><span>12 Dec 2017</span></td>
+																<td class="text-center align-middle">
+																	<label class="custom-switch">
+																		<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+																		<span class="custom-switch-indicator"></span>
+																	</label>
+																</td>
+																<td class="text-center align-middle">
+																	<div class="btn-group align-top">
+																		<button class="btn btn-sm btn-primary badge" data-target="#user-form-modal" data-toggle="modal" type="button">Edit</button> <button class="btn btn-sm btn-primary badge" type="button"><i class="fa fa-trash"></i></button>
+																	</div>
+																</td>
+															</tr>
+															<tr>
+																<td class="align-middle text-center">
+																	<div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0 align-top">
+																		<input class="custom-control-input" id="item-10" type="checkbox"> <label class="custom-control-label" for="item-10"></label>
+																	</div>
+																</td>
+																<td class="align-middle text-center"><img alt="image" class="avatar avatar-md rounded-circle" src="assets/img/avatar/avatar-3.jpeg"></td>
+																<td class="text-nowrap align-middle">Mikaela Pinel</td>
+																<td class="text-nowrap align-middle"><span>10 Dec 2017</span></td>
+																<td class="text-center align-middle">
+																	<label class="custom-switch">
+																		<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+																		<span class="custom-switch-indicator"></span>
+																	</label>
+																</td>
+																<td class="text-center align-middle">
+																	<div class="btn-group align-top">
+																		<button class="btn btn-sm btn-primary badge" data-target="#user-form-modal" data-toggle="modal" type="button">Edit</button> <button class="btn btn-sm btn-primary badge" type="button"><i class="fa fa-trash"></i></button>
+																	</div>
+																</td>
+															</tr>
+															<tr>
+																<td class="align-middle text-center">
+																	<div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0 align-top">
+																		<input class="custom-control-input" id="item-11" type="checkbox"> <label class="custom-control-label" for="item-11"></label>
+																	</div>
+																</td>
+																<td class="align-middle text-center"><img alt="image" class="avatar avatar-md rounded-circle" src="assets/img/avatar/avatar-4.jpeg"></td>
+																<td class="text-nowrap align-middle">Donnell Farries</td>
+																<td class="text-nowrap align-middle"><span>03 Dec 2017</span></td>
+																<td class="text-center align-middle">
+																	<label class="custom-switch">
+																		<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+																		<span class="custom-switch-indicator"></span>
+																	</label>
+																</td>
+																<td class="text-center align-middle">
+																	<div class="btn-group align-top">
+																		<button class="btn btn-sm btn-primary badge" data-target="#user-form-modal" data-toggle="modal" type="button">Edit</button> <button class="btn btn-sm btn-primary badge" type="button"><i class="fa fa-trash"></i></button>
+																	</div>
+																</td>
+															</tr>
+															<tr>
+																<td class="align-middle text-center">
+																	<div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0 align-top">
+																		<input class="custom-control-input" id="item-12" type="checkbox"> <label class="custom-control-label" for="item-12"></label>
+																	</div>
+																</td>
+																<td class="align-middle text-center"><img alt="image" class="avatar avatar-md rounded-circle" src="assets/img/avatar/avatar-5.jpeg"></td>
+																<td class="text-nowrap align-middle">Letizia Puncher</td>
+																<td class="text-nowrap align-middle"><span>09 Dec 2017</span></td>
+																<td class="text-center align-middle">
+																	<label class="custom-switch">
+																		<input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+																		<span class="custom-switch-indicator"></span>
+																	</label>
+																</td>
+																<td class="text-center align-middle">
+																	<div class="btn-group align-top">
+																		<button class="btn btn-sm btn-primary badge" data-target="#user-form-modal" data-toggle="modal" type="button">Edit</button> <button class="btn btn-sm btn-primary badge" type="button"><i class="fa fa-trash"></i></button>
+																	</div>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+												<div class="d-flex justify-content-center">
+													<ul class="pagination mt-3 mb-0">
+														<li class="disabled page-item">
+															<a class="page-link" href="#">‹</a>
+														</li>
+														<li class="active page-item">
+															<a class="page-link" href="#">1</a>
+														</li>
+														<li class="page-item">
+															<a class="page-link" href="#">2</a>
+														</li>
+														<li class="page-item">
+															<a class="page-link" href="#">3</a>
+														</li>
+														<li class="page-item">
+															<a class="page-link" href="#">4</a>
+														</li>
+														<li class="page-item">
+															<a class="page-link" href="#">5</a>
+														</li>
+														<li class="page-item">
+															<a class="page-link" href="#">›</a>
+														</li>
+														<li class="page-item">
+															<a class="page-link" href="#">»</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+
+				<footer class="main-footer">
+					<div class="text-center">
+						Copyright &copy;Kharna-Admin 2018. Design By<a href="https://spruko.com/"> Spruko</a>
+					</div>
+				</footer>
+
+			</div>
+		</div>
+
+		<!--Jquery.min js-->
+		<script src="assets/js/jquery.min.js"></script>
+
+		<!--popper js-->
+		<script src="assets/js/popper.js"></script>
+
+		<!--Tooltip js-->
+		<script src="assets/js/tooltip.js"></script>
+
+		<!--Bootstrap.min js-->
+		<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+		<!--Jquery.nicescroll.min js-->
+		<script src="assets/plugins/nicescroll/jquery.nicescroll.min.js"></script>
+
+		<!--mCustomScrollbar js-->
+		<script src="assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+		<!--Scroll-up-bar.min js-->
+		<script src="assets/plugins/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
+
+		<!--Sidemenu js-->
+		<script src="assets/plugins/toggle-menu/sidemenu.js"></script>
+
+		<!--Scripts js-->
+		<script src="assets/js/scripts.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,1 @@
+var dataLogInfo={'logflag':-1};

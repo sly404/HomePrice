@@ -1,0 +1,485 @@
+<!--蒋梓健编写-->
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>996也付不起首付队</title>
+
+    <!--Favicon -->
+    <link rel="icon" href="{% static 'assets/img/favicon.ico' %}" type="image/x-icon"/>
+
+    <!--Bootstrap.min css-->
+    <link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+
+    <!--Icons css-->
+    <link rel="stylesheet" href="{% static 'assets/css/icons.css' %}">
+
+    <!--Style css-->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+    <!--mCustomScrollbar css-->
+    <link rel="stylesheet" href="{% static 'assets/plugins/scroll-bar/jquery.mCustomScrollbar.css' %}">
+
+    <!--Sidemenu css-->
+    <link rel="stylesheet" href="{% static 'assets/plugins/toggle-menu/sidemenu.css' %}">
+
+
+    <!--选择框的实现-->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/city-picker.css' %}">
+
+
+    <!-- 圖表的css的文件 -->
+
+    <!--Favicon -->
+    <link rel="icon" href="{% static 'assets/img/favicon.ico' %}" type="image/x-icon"/>
+
+    <!--Bootstrap.min css-->
+    <link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+
+    <!--Icons css-->
+    <link rel="stylesheet" href="{% static 'assets/css/icons.css' %}">
+
+    <!--mCustomScrollbar css-->
+    <link rel="stylesheet" href="{% static 'assets/plugins/scroll-bar/jquery.mCustomScrollbar.css' %}">
+
+    <!--Style css-->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+    <!--Sidemenu css-->
+    <link rel="stylesheet" href="{% static 'assets/plugins/toggle-menu/sidemenu.css' %}">
+
+    <!--Chartist css-->
+    <link rel="stylesheet" href="{% static 'assets/plugins/chartist/chartist.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/chartist/chartist-plugin-tooltip.css' %}">
+
+
+</head>
+
+<body class="app " id="body">
+
+<div id="spinner"></div>
+
+<div id="app">
+    <div class="main-wrapper">
+        <nav class="navbar navbar-expand-lg main-navbar">
+            <a class="header-brand" href="../index">
+                <img src="{% static 'assets/img/brand/logo.png' %}" class="header-brand-img" alt="Kharna-Admin  logo">
+            </a>
+            <form class="form-inline mr-auto">
+                <ul class="navbar-nav mr-3">
+                    <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i
+                            class="ion ion-navicon-round"></i></a></li>
+                    <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"><i
+                            class="ion ion-search"></i></a></li>
+                </ul>
+                <!-- <div class="search-element"> -->
+                <!-- <input class="form-control" type="search" placeholder="Search" aria-label="Search"> -->
+                <!-- <button class="btn btn-primary" type="submit"><i class="ion ion-search"></i></button> -->
+                <!-- </div> -->
+            </form>
+            <ul class="navbar-nav navbar-right">
+                <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+                                                             class="nav-link notification-toggle nav-link-lg beep"><i
+                        class="ion-ios-email-outline"></i></a>
+                    <div class="dropdown-menu dropdown-list dropdown-menu-right">
+                        <div class="dropdown-header">Messages
+                            <div class="float-right">
+                                <a href="#">View All</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-list-content">
+                            <a href="#" class="dropdown-item dropdown-item-unread">
+                                <img alt="image" src="{% static 'assets/img/avatar/avatar-1.jpeg.jpg' %}"
+                                     class="rounded-circle dropdown-item-img">
+                                <div class="dropdown-item-desc">
+                                    <div class="dropdownmsg d-flex">
+                                        <div class="">
+                                            <b>Stewart Ball</b>
+                                            <p>Your template awesome</p>
+                                        </div>
+                                        <div class="time">6 hours ago</div>
+                                    </div>
+
+                                </div>
+                            </a>
+                            <a href="#" class="dropdown-item dropdown-item-unread">
+                                <img alt="image" src="{% static 'assets/img/avatar/avatar-2.jpeg.jpg' %}"
+                                     class="rounded-circle dropdown-item-img">
+                                <div class="dropdown-item-desc">
+                                    <div class="dropdownmsg d-flex">
+                                        <div class="">
+                                            <b>Jonathan North</b>
+                                            <p>Your Order Shipped.....</p>
+                                        </div>
+                                        <div class="time">45 mins ago</div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <img alt="image" src="{% static 'assets/img/avatar/avatar-4.jpeg.jpg' %}"
+                                     class="rounded-circle dropdown-item-img">
+                                <div class="dropdown-item-desc">
+                                    <div class="dropdownmsg d-flex">
+                                        <div class="">
+                                            <b>Victor Taylor</b>
+                                            <p>Hi!, I' am web developer</p>
+                                        </div>
+                                        <div class="time"> 8 hours ago</div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <img alt="image" src="{% static 'assets/img/avatar/avatar-3.jpeg.jpg' %}"
+                                     class="rounded-circle dropdown-item-img">
+                                <div class="dropdown-item-desc">
+                                    <div class="dropdownmsg d-flex">
+                                        <div class="">
+                                            <b>Ruth Arnold</b>
+                                            <p>Hi!, I' am web designer</p>
+                                        </div>
+                                        <div class="time"> 3 hours ago</div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <img alt="image" src="{% static 'assets/img/avatar/avatar-5.jpeg.jpg' %}"
+                                     class="rounded-circle dropdown-item-img">
+                                <div class="dropdown-item-desc">
+                                    <div class="dropdownmsg d-flex">
+                                        <div class="">
+                                            <b>Sam Lyman</b>
+                                            <p>Hi!, I' am java developer</p>
+                                        </div>
+                                        <div class="time"> 15 mintues ago</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+                                                             class="nav-link  nav-link-lg beep"><i
+                        class="ion-ios-bell-outline"></i></a>
+                    <div class="dropdown-menu dropdown-list dropdown-menu-right">
+                        <div class="dropdown-header">Notifications
+                            <div class="float-right">
+                                <a href="#">View All</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-list-content">
+                            <a href="#" class="dropdown-item">
+                                <i class="fa fa-users text-primary"></i>
+                                <div class="dropdown-item-desc">
+                                    <b>So many Users Visit your template</b>
+                                </div>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fa fa-exclamation-triangle text-danger"></i>
+                                <div class="dropdown-item-desc">
+                                    <b>Error message occurred....</b>
+                                </div>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fa fa-users text-warning"></i>
+                                <div class="dropdown-item-desc">
+                                    <b> Adding new people</b>
+                                </div>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fa fa-shopping-cart text-success"></i>
+                                <div class="dropdown-item-desc">
+                                    <b>Your items Arrived</b>
+                                </div>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fa fa-comment text-primary"></i>
+                                <div class="dropdown-item-desc">
+                                    <b>New Message received</b>
+                                    <div class="float-right"><span
+                                            class="badge badge-pill badge-danger badge-sm">67</span></div>
+                                </div>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fa fa-users text-primary"></i>
+                                <div class="dropdown-item-desc">
+                                    <b>So many Users Visit your template</b>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown dropdown-list-toggle">
+                    <a href="#" class="nav-link nav-link-lg full-screen-link">
+                        <i class="ion-arrow-expand" id="fullscreen-button"></i>
+                    </a>
+                </li>
+                <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
+                    <i class="ion ion-android-person"></i>
+                    <div class="d-sm-none d-lg-inline-block">{{ username }}</div>
+                </a>
+                </li>
+            </ul>
+        </nav>
+
+        <aside class="app-sidebar">
+            <div class="app-sidebar__user">
+                <div class="dropdown">
+                    <a class="nav-link pl-2 pr-2 leading-none d-flex" data-toggle="dropdown" href="#">
+{#                        <img alt="image" src="{% static 'assets/img/avatar/avatar-1.jpeg' %}"#}
+{#                             class=" avatar-md rounded-circle">#}
+                        <span class="ml-2 d-lg-block">
+									<span class="text-white app-sidebar__user-name mt-5">{{ username }}</span><br>
+								</span>
+                    </a>
+                </div>
+            </div>
+            <li class="slide">
+                <a class="side-menu__item" href="../index"><i class="side-menu__icon fa fa-desktop"></i><span
+                        class="side-menu__label">主页</span></a>
+            </li>
+            <li>
+                <a class="side-menu__item" href="../recommend"><i class="side-menu__icon fa fa-flask"></i><span
+                        class="side-menu__label">房源推荐</span></a>
+            </li>
+            <li class="slide">
+                <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-tasks"></i><span
+                        class="side-menu__label">房价信息</span><i class="angle fa fa-angle-right"></i></a>
+                <ul class="slide-menu">
+                    <li><a href="../houseinfo" class="slide-item"> 城市房价</a></li>
+                    <li><a href="../compare" class="slide-item"> 房价对比</a></li>
+
+                </ul>
+            </li>
+            <li class="slide">
+                <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-paw"></i><span
+                        class="side-menu__label">房价分析</span><i class="angle fa fa-angle-right"></i></a>
+                <ul class="slide-menu">
+                    <li><a href="../ranking" class="slide-item"> 房价排行</a></li>
+                    <li><a href="../predict" class="slide-item">房价预测</a></li>
+                </ul>
+            </li>
+            <li class="slide">
+                <a class="side-menu__item" href="../community"><i class="side-menu__icon fa fa-table"></i><span
+                        class="side-menu__label">社区</span></a>
+
+            </li>
+            <li class="slide" id = "charger">
+                 <a class="side-menu__item" data-toggle="slide" href="#"><i
+                        class="side-menu__icon fa fa-file-text"></i><span class="side-menu__label">管理员功能</span><i
+                        class="angle fa fa-angle-right"></i></a>
+                <ul class="slide-menu">
+                    <li><a href="../usermanage" class="slide-item">用户管理</a></li>
+                    <li><a href="../community_m" class="slide-item">帖子管理</a></li>
+                </ul>
+            </li>
+            </ul>
+        </aside>
+
+        <div class="app-content">
+            <section class="section">
+                <ol class="breadcrumb">
+                    <!-- <li class="breadcrumb-item"><a href="#">主页</a></li> -->
+                    <li class="breadcrumb-item"><a href="../index">主页</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">城市房价</li>
+                </ol>
+
+
+                <div class="card">
+                    <div class="card-header">查询房价信息</div>
+                    <div class="card-body">
+                        <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="city-picker-selector" id="city-picker-search">
+                        </div>
+                        <br>
+                        <input type="button" value="确定" class="btn btn-primary m-b-5 m-t-5"/>
+                        </form>
+                    </div>
+                </div>
+                <!-- end .city-picker-selector -->
+
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row">
+                                    <h4>房价走向趋势</h4>
+                                    <div style="padding-left:435px">
+                                        <div class="form-group overflow-hidden">
+                                            <select class="form-control select2 w-100" id="year_choose">
+                                                <option>2019年</option>
+                                                <option selected="selected">2018年</option>
+                                                <option>2017年</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body" align=right>
+                                <div id="chartLine1" class="w-100 overflow-hidden"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>各区房价信息</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="chartBar3" class="w-100 overflow-hidden"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 </section>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        //搜索框和城市选择框定位
+        var navlift = $('.header_top_content').offset().left;
+        //搜索框
+        $('.search_area').css({
+            'left': navlift,
+        });
+        //城市选择框
+        $('.nav-eare_city_select').css({
+            'left': navlift + 1180 - 380,
+        });
+    })
+</script>
+<!--Jquery.min js-->
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+
+<!--popper js-->
+<script src="{% static 'assets/js/popper.js' %}"></script>
+
+<!--Tooltip js-->
+<script src="{% static 'assets/js/tooltip.js' %}"></script>
+
+<!--Bootstrap.min js-->
+<script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+<!--Jquery.nicescroll.min js-->
+<script src="{% static 'assets/plugins/nicescroll/jquery.nicescroll.min.js' %}"></script>
+
+<!--Scroll-up-bar.min js-->
+<script src="{% static 'assets/plugins/scroll-up-bar/dist/scroll-up-bar.min.js' %}"></script>
+
+<!--mCustomScrollbar js-->
+<script src="{% static 'assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+
+<!--Sidemenu js-->
+<script src="{% static 'assets/plugins/toggle-menu/sidemenu.js' %}"></script>
+
+<!--Scripts js-->
+<script src="{% static 'assets/js/scripts.js' %}"></script>
+
+<!-- 城市選擇框的代碼 -->
+<script type="text/javascript" src="{% static 'js/citydata.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/cityPicker-1.0.0.js' %}"></script>
+<script type="text/javascript">
+    $(function () {
+        //模拟城市-无联动/无搜索
+        var selector = $('.city-picker-selector').cityPicker({
+            dataJson: cityData,
+            renderMode: true,
+            search: false,
+            linkage: false
+        })
+        $('.city-picker-selector').on('choose-province.citypicker', function (event, tagert, storage) {
+            console.log(storage);
+        });
+        //设置城市
+        selector.setCityVal([{
+            'id': '110000',
+            'name': '北京市'
+       }, {
+            'id': '110100',
+            'name': '北京市'
+        }, {
+            'id': '110108',
+            'name': '海淀区'
+        }]);
+
+        //模拟城市-联动/搜索
+        $('#city-picker-search').cityPicker({
+            dataJson: cityData,
+            renderMode: true,
+            search: true,
+            linkage: true
+        });
+
+        //原生城市-无联动
+        var select = $('.city-picker-select').cityPicker({
+            dataJson: cityData,
+            renderMode: false,
+            linkage: false
+        });
+
+        //设置城市
+        select.setCityVal([{
+           'id': '140000',
+            'name': '山西省'
+        }, {
+           'id': '140100',
+           'name': '太原市'
+        }, {
+            'id': '140105',
+           'name': '小店区'
+        }]);
+    });
+</script>
+<script>
+    var cityDict;
+    var disDict;
+    var price;
+    var year;
+    {#$("#year_choose").change(function () {#}
+    {#    year = $(this).find("option:selected").text();#}
+    {#    alert(year)#}
+    //);
+    $(".btn-primary").click(function () {
+        year = $("#year_choose").find("option:selected").text();
+        province = $("input[name='userProvinceId']").val();
+        city = $("input[name = 'userCityId']").val();
+        district = $("input[name = 'userDistrictId']").val();
+        {#alert(year);#}
+        {#var my = {"province":province,"city":city,"district":district,"year":year};#}
+        $.post("/houseinfo_change/", {"city": city,"year":year}, function (data, status) {
+            cityDict = data['cityDict'];
+            disDict = data['disDict'];
+            array = data['Dictlist'];
+            $.getScript("{% static 'assets/plugins/chartist/chart.chartist.js'%}");
+            }, "json");
+    });
+</script>
+<script src="{% static 'assets/plugins/chartist/chartist.js'%}" ></script>
+<script src="{% static 'assets/plugins/chartist/chart.chartist.js'%}"></script>
+<script src="{% static 'assets/plugins/chartist/chartist-plugin-tooltip.js' %}"></script>
+
+<script>
+            var charger = {{ charger }}
+            if(charger === 1) {
+                document.getElementById("charger").style.visibility = "visible";
+            }
+            else {
+                document.getElementById("charger").style.visibility = "hidden";
+            }
+</script>
+
+{#<script>#}
+{#    document.getElementById("district").style.visibility = "hidden";#}
+{#</script>#}
+
+</html>

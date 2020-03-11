@@ -1,0 +1,2059 @@
+<!--编写人-陈潇阳-->
+<!--项目的js代码由施立耀，刘亦凡编写-->
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+	<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>996也付不起首付队</title>
+
+		<!--Favicon -->
+		<link rel="icon" href="{% static 'assets/img/favicon.ico' %}" type="image/x-icon"/>
+
+		<!--Bootstrap.min css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+
+		<!--Icons css-->
+		<link rel="stylesheet" href="{% static 'assets/css/icons.css' %}">
+
+		<!--Style css-->
+		<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+		<!--mCustomScrollbar css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/scroll-bar/jquery.mCustomScrollbar.css' %}">
+
+		<!--Sidemenu css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/toggle-menu/sidemenu.css' %}">
+
+		<!--Chartist css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/chartist/chartist.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/plugins/chartist/chartist-plugin-tooltip.css' %}">
+
+		<!--Full calendar css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/fullcalendar/stylesheet1.css' %}">
+		
+		<!--morris css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/morris/morris.css' %}">
+
+
+
+<meta property="wb:webmaster" content="b45e38bffc4536fb"><!-- weibo check flag -->
+
+<style type="text/css">
+/* CSS Document */
+/*
+**原为city_reset_v1中样式-lch
+**2012-08-30
+*/
+html 				{color:#000;background:#FFF;}
+/*HTML的元素去处margin,padding*/
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,
+dl,dt,dd,ul,ol,li,pre,form,fieldset,
+legend,button,input,
+textarea,th,td		{margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6	{font-size:100%;}
+address,caption,cite,code,dfn,em,strong, th,var	
+					{font-style:normal;font-weight:normal;}
+code,kbd,pre,samp	{font-family:courier new, courier, monospace;}
+small				{font-size:12px;}
+ul,ol,li			{list-style:none;list-style-position:outside;}
+a:hover				{text-decoration:underline;}
+sup					{vertical-align:text-top;}
+sub					{vertical-align:text-bottom;}
+button,input,select,textarea{font-size:100%;}
+a					{text-decoration:none;}
+a:hover, a:focus	{color:#c50000;}
+strong				{font-weight:bold;}
+input[type=submit]	{cursor:pointer;}
+button				{cursor:pointer;}
+input, label, img, th{vertical-align: middle;}
+/*针对一些常用的样式复位起到同一个大浏览器之间差异*/
+table				{border-collapse:collapse;border-spacing:0;}
+fieldset,
+img					{border:0;}
+caption,
+th					{text-align:left;}
+input,
+textarea,
+select				{font-family:inherit;font-size:inherit;font-weight:inherit;}
+input,
+textarea,
+select				{*font-size:100%;}
+legend				{color:#000;}
+body,button,input,select,textarea{font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif;}
+body				{color:#333;}
+a					{text-decoration:none;color:#333;}
+a:hover,
+a:focus				{text-decoration:underline;color:#F00;}
+/*清除浮动*/
+.clear				{clear:both;height:0px;font-size:0px;line-height:0px;overflow:hidden;}
+.clearl				{clear:left;}
+.clear_h10,
+.hr_10				{clear:both;height:10px;overflow:hidden;}/*hr_10老规则*/
+.clearfix:after		{content:".";display:block;height:0;line-height:0;font-size:0;overflow:hidden;visibility:hidden;clear:both;}	
+.clearfix			{display:inline-block;}
+.clearfix			{display:block;}
+/*常用的布局样式首先是居中*/
+.mg,
+.mg_center			{margin:0 auto;}/*mg_center老规则*/
+/*行块元素*/
+.inline             {display:inline;font-weight:normal;}
+.block				{display:block;} /*有重复的需要兼并*/
+.none,
+.display_none		{display:none;}/*有重复的需要兼并*/
+/*字体样式*/
+.b					{font-weight:bold;}
+.normal				{font-weight:normal;}
+/*字体颜色*/
+.c_gray				{color:#999;}
+.c_gray6,
+.fc_gray			{color:#666;}
+.c_gray3			{color:#333;}
+.c_blue,
+.fc_blue			{color:#06c;}
+.c_red,
+.fc_red				{color:#c50000;}
+.c_red2				{color:#cc0a15;}
+.c_green,
+.fc_green			{color:#090;}
+.c_orange			{color:#F60;}
+.c_white			{color:#fff;}
+/*a.c_link*/
+/*end a.c_link*/
+/*行内转行块元素*/
+.bk_element			{display:table-cell;display:inline-block;*display:inline;*zoom:1;vertical-align:top;}
+/*行高*/
+.lh_18				{line-height:18px;}
+.lh_20				{line-height:20px;}
+.lh_21,
+.fh_21				{line-height:21px;}
+.lh_24				{line-height:24px;}
+.lh_26				{line-height:26px;}
+.lh_30				{line-height:30px;}
+.lh_35				{line-height:35px;}
+/*字号*/
+.fz_11				{font-size:11px;}
+.fz_12,
+.fs_12				{font-size:12px;}
+.fz_14				{font-size:14px;}
+.fz_15				{font-size:15px;}
+.fz_16				{font-size:16px;}
+.fz_18				{font-size:18px;}
+.fz_20				{font-size:20px;}
+.fz_24				{font-size:24px;}
+.fz_30				{font-size:30px;}
+/*组合样式*/
+.fsc324             {font-size:24px;color:#333;}
+/*行内元素对其方式垂直方向*/
+.vt,
+.v_text_t			{vertical-align:top;}
+.vm,
+.v_text_m			{vertical-align:middle;}
+.vb					{vertical-align:bottom;}
+/*横向对其方式*/
+.tl					{text-align:left;}
+.tc,
+.ta_text_c			{text-align:center;}
+.tr,
+.ta_text_r			{text-align:right;}
+.tj					{text-align:justify;}
+/*禁止换行*/
+.nh					{white-space:nowrap;}
+/*强制换行*/
+.yh					{word-wrap:break-word;}
+/*价格字体*/
+.pice				{font-weight:bold;color:#F00;font-family:Arial, Helvetica, sans-serif;font-size:16px;}
+.pice2				{color:#c50000;font-size:24px;font-weight:bold;}/**/
+.pricex				{color:#cc0a15;font-weight:bold;}
+/*关于布局流的样式总汇*/
+/*浮动*/
+.fl,
+.f_l				{float:left;}
+.fr,
+.f_r				{float:right;}
+/*宽度*/
+.w100f,
+.w_100f				{width:100%;}
+.w_960				{width:960px;}
+.w_950				{width:950px;}
+.w_790				{width:790px;}
+.w_770				{width:770px;}
+.w_750				{width:750px;}
+.w_740				{width:740px;}
+.w_710				{width:710px;}
+.w_700				{width:700px;overflow:hidden;}
+.w_690				{width:690px;}
+.w_685              {width:685px;}
+.w_675				{width:675px;}
+.w_670              {width:670px;}
+.w_660              {width:660px;}
+.w_650              {width:650px;}
+.w_645				{width:645px;}
+.w_640				{width:640px;}
+.w_635				{width:635px;}
+.w_620				{width:620px;}
+.w_610				{width:610px;}
+.w_598				{width:598px;}
+.w_590				{width:590px;}
+.w_510				{width:510px;}
+.w_500				{width:500px;}
+.w_460				{width:460px;}
+.w_440				{width:440px;}
+.w_405				{width:405px;}
+.w_395				{width:395px;}
+.w_390				{width:390px;}
+.w_385				{width:385px;}
+.w_380				{width:380px;}
+.w_370				{width:370px;}
+.w_350				{width:350px;}
+.w_345				{width:345px;}
+.w_340              {width:340px;}
+.w_330				{width:330px;}
+.w_328				{width:328px;}
+.w_325				{width:325px;}
+.w_320				{width:320px;}
+.w_315				{width:315px;}
+.w_310				{width:310px;}
+.w_305				{width:305px;}
+.w_304				{width:304px;overflow:hidden;}
+.w_300				{width:300px;}
+.w_290				{width:290px;}
+.w_280				{width:280px;}
+.w_275				{width:275px;}
+.w_270              {width:270px;}
+.w_260              {width:260px;}
+.w_250				{width:250px;}
+.w_240				{width:240px;}
+.w_235				{width:235px;}
+.w_210				{width:210px;}
+.w_200				{width:200px;}
+.w_180				{width:180px;}
+.w_130              {width:130px;}
+.w_104              {width:104px;}
+.w_80				{width:80px;}
+.w_70				{width:70px;}
+.w_60				{width:60px;}
+.w_40				{width:40px;}
+.w950				{width:950px;}
+.w960				{width:960px;}
+/*end 宽度*/
+/*边框的集合*/
+.border_none,
+.span.none_b		{border:none;}
+.bdr_1				{border:1px solid #B9DFF9;}
+.bder2				{border:1px solid #ccc;}
+.bder3				{}
+/*end 边框的集合*/
+/*MARGIN*/
+.mtf12				{margin-top:-12px;}
+.mt_f1,
+.m_t_j1				{margin-top:-1px;}
+.mt5,
+.m_t_5				{margin-top:5px;}
+.mt,
+.m_t_10				{margin-top:10px;}
+.mt15				{margin-top:15px;}
+.mt20,
+.m_t_20				{margin-top:20px;}
+.mt25				{margin-top:25px;}
+.mt26,
+.m_t_26				{margin-top:26px;}
+.mt30,
+.m_t_30				{margin-top:30px;}
+.mt40,
+.m_t_40				{margin-top:40px;}
+.mr_f1				{margin-right:-1px;}
+.mr5,
+.m_r_5				{margin-right:5px;}
+.mr8,
+.m_r_8				{margin-right:8px;}
+.mr,
+.m_r_10				{margin-right:10px;}
+.mr15,
+.m_r_15				{margin-right:15px;}
+.mr20,
+.m_r_20				{margin-right:20px;}
+.mr25				{margin-right:25px;}
+.mr30,
+.m_r_30				{margin-right:30px;}
+.mr35				{margin-right:35px;}
+.mr40				{margin-right:40px;}
+.mr50				{margin-right:50px;}
+.mb_f1,
+.m_b_j1				{margin-bottom:-1px;}
+.mb3				{margin-bottom:3px;}
+.mb5,
+.m_b_5				{margin-bottom:5px;}
+.mb7,
+.m_b_7				{margin-bottom:7px;}
+.mb,
+.m_b_10				{margin-bottom:10px;}
+.mb15,
+.m_b_15				{margin-bottom:15px;}
+.mb20,
+.m_b_20				{margin-bottom:20px;}
+.mb25				{margin-bottom:25px;}
+.mb30,
+.m_b_30				{margin-bottom:30px;}
+.mb35				{margin-bottom:35px;}
+.ml_f1				{margin-left:-1px;}
+.ml5				{margin-left:5px;}
+.ml,
+.m_l_10				{margin-left:10px;}
+.ml15				{margin-left:15px;}
+.ml20,
+.m_l_20				{margin-left:20px;}
+.ml25				{margin-left:25px;}
+.ml30				{margin-left:30px;}
+.ml35				{margin-left:35px;}
+.ml40,
+.m_l_40				{margin-left:40px;}
+.mall15,
+.m_all_15			{margin:15px;}
+/*end margin组合样式*/
+/*防止margin串层ptf1*/
+.pt1f1				{padding-top:1px;margin-top:-1px;}
+/*end 防止margin串层ptf1*/
+/*padding*/
+.pt1				{padding-top:1px;}
+.pt5				{padding-top:5px;}
+.pt					{padding-top:10px;}
+.pt15				{padding-top:15px;}
+.pt20				{padding-top:20px;}
+.pt30				{padding-top:30px;}
+.pr5				{padding-right:5px;}
+.pr					{padding-right:10px;}
+.pr15				{padding-right:15px;}
+.pr20				{padding-right:20px;}
+.pb5				{padding-bottom:5px;}
+.pb					{padding-bottom:10px;}
+.pb15				{padding-bottom:15px;}
+.pb20				{padding-bottom:20px;}
+.pl5				{padding-left:5px;}
+.pl					{padding-left:10px;}
+.pl15				{padding-left:15px;}
+.pl20				{padding-left:20px;}
+/*margin组合样式*/
+.plr8				{padding:0 8px;}
+.plr				{padding:0 10px;}
+.plr15,
+.pdd_rl_15			{padding:0 15px;}
+.plr5,
+.pdd_rl_5			{padding:0 5px;}
+.ptb5				{padding:5px 0;}
+.ptb10,
+.pdd_tb_10			{padding:10px 0;}
+.prl10,
+.pdd_rl_10			{padding:0 10px;}
+.pdd1,
+.pdd_1				{padding:1px;}
+.pdd4,
+.pdd_4				{padding:4px;}
+.pdd5,
+.pdd_5				{padding:5px;}
+.pdd10,
+.pdd_10				{padding:10px;}
+.pdd15,
+.pdd_15				{padding:15px;}
+.pddl_20			{padding-left:20px;}
+/*end margin组合样式*/
+/*显示于隐藏这个在JS中作用很大*/
+.db					{display:block;}
+.dn					{display:none;}
+/*背景色彩*/
+.bgf5				{background:#f5f5f5;}
+/*end 背景色彩*/
+/*字体库*/
+.public_minu,
+.public_childbt,
+.public_bt2,
+.public_btx,
+.public_big			{font-family:"微软雅黑","黑体",\5b8b\4f53;display:inline;font-weight:normal;}
+.public_title,
+.fz_wryh			{font-family:"微软雅黑",\5b8b\4f53,"黑体";}
+.public_title		{font-size:20px;line-height:24px;font-weight:bold;display:inline;}
+.public_minu		{font-size:18px;color:#c50000;font-weight:bold;font-family:"宋体";}
+.public_childbt		{font-size:20px;}
+.public_btx			{font-size:18px;font-weight:normal;}
+.public_btx2		{font-size:20px;font-weight:bold;font-family:"宋体";color:#fff;}
+.public_big			{font-size:36px;}
+.public_numbig		{font-size:26px;font-weight:bold;}
+.public_st			{font-family:\5b8b\4f53;}
+.fz_020 			{font-family:"黑体",\5b8b\4f53;font-size:20px;font-weight:normal;}
+.fst				{font-family:\5b8b\4f53;color:#333;}
+/*2011-2-10详细页列表页的字体改版*/
+.front_detail		{font-family:"微软雅黑","黑体",Arial;font-size:24px;_font-family:"黑体",Arial;font-weight:normal;}
+/*2012-05-30 李素燕项目招商标题*/
+.title_zt           {padding-bottom:10px;}
+.title_zt           {font-family: "微软雅黑","黑体";font-size: 20px;font-weight: normal;}
+
+
+.front_dstate		{margin-right:10px;vertical-align:middle;display:inline;zoom:1;}
+/*end 字体库*/
+/*页面常用的标题*/
+.public_bt			{font-size:24px;}
+.public_bt2			{font-size:18px;}
+/*分割线*/
+.fline,
+.fline2				{font-family:"宋体", Helvetica, sans-serif;color:#ccc;padding:0 5px;}
+.fline2				{padding:0px 5px 0px 0px;}
+.flineh				{color:#333;}
+.flinec_3			{font-family:\5b8b\4f53;}
+/*电话号码*/
+/*更多*/
+.more 				{color:#06c;font-family:\5b8b\4f53;}
+.tp2				{font-weight:bold;font-size:18px;}	
+/*段前*/
+.t_indent			{text-indent:1em;}
+.t_indent2			{text-indent:2em;}
+/*最小高度*/
+.mh_600				{height:auto !important;min-height:600px;height:600px;overflow:visible;}
+.mh_400				{min-height:400px;height:auto !important;height:400px;overflow:visible;}
+.mh_200				{min-height:200px;height:auto !important;height:200px;overflow:visible;}
+.mh_293				{min-height:293px;height:auto !important;height:293px;overflow:visible;}
+.mh_298				{min-height:298px;height:auto !important;height:298px;overflow:visible;}
+.mh_304				{min-height:304px;height:auto !important;height:304px;overflow:visible;}
+/*图片*/
+.img_hidden			{display:block;overflow:hidden;text-align:center;}
+/*end 最小高度*/
+/*radio_list*/
+.radio_list label	{vertical-align:bottom;margin-right:5px;}
+.radio_list input	{vertical-align:bottom;margin-right:3px;}
+
+
+/*HACK*/
+.plv,
+.pos_rel			{position:relative;}
+.zooms				{*zoom:1;}
+.dbzoom				{display:inline-block;zoom:1;}/*解决相对定位里面的据对定位没有定义宽度的IE错误*/
+.overflow			{overflow:hidden;}
+.pointers			{cursor:pointer;}
+/*红字下划线*/
+.red_uline			{color:#c50000;text-decoration:underline;}
+/*覆盖原有的城市房产老样式*/
+
+/*头部查询输出样式*/
+.ac_results							{border:1px solid #c4cfe1; background:#fff; color:#F60; line-height:22px;z-index:9999;}
+.ac_results li						{color:#3366cc;border-top:1px solid #dfdfdf;padding:0 5px;}
+.ac_results li a					{display:block;padding:0 5px;}
+.ac_results li span					{font-weight:normal; float:right; color:#333;}
+.ac_results li span b				{display:none;}
+.ac_results li span a				{display:none;}
+.ac_results li strong				{font-weight:normal;}
+.ac_loading							{/*background: white url('indicator.gif') right center no-repeat;*/}
+.ac_odd								{/*background-color: #fff;*/}
+.ac_over							{background-color: #d0e2f9; cursor:pointer; }
+.ac_over li							{color:#fff; }
+{#1@charset "utf-8";#}
+/* CSS Document */
+/*
+**控制 选择城市 和 房价、租金排行 三个页面
+**需集合public.css 样式表
+*/
+
+/*-------------------选择城市页面---*/
+#city_s_header                     {background: url("http://image3.cityhouse.cn/images/city_repeat-x_v1.png") repeat-x scroll left bottom transparent;}
+.city_s_headerin                   {height: 60px;margin: 0 auto;width: 970px;}
+#logo2                             {height: 25px;margin: 15px 10px 0 0;width: 120px;}
+#logo2 a                           {background: url("http://image3.cityhouse.cn/images/logo.gif") no-repeat scroll 0 0 transparent;display: block;font-size: 18px;font-weight: bold;height: 25px;overflow: hidden;padding-left: 30px;}
+#logo2 a:hover,
+#logo2 a:focus                     {text-decoration:none;color:#333333}
+
+#city_s_content,
+#city_s_footer                     {margin: 0 auto;width: 970px;}
+#city_s_content .p_ac,
+#city_s_content .p_ac:hover		   {color:#c50000;}
+
+
+#cp_header						   {background:#c50000;height:55px;}
+.cp_iheader						   {width:970px;margin:0 auto;padding:15px 0;}
+.s_city_box                        {border-bottom: 1px solid #DADADA;padding: 15px 0;}
+.s_city_box select                 {width:110px;}
+.input_txt4                        {border: 1px solid #CDCDCD;color: #999999;height: 25px;line-height: 25px;padding: 0 5px;width: 226px;}
+.input_button3                     {cursor: pointer;height: 27px;width: 55px;}
+.w_620 .ha_infolist .hainfo .hapirce    {width: 150px;}
+.ha_infolist.w_620 .hainfo              {width: 510px;}
+.forsale_house_list.w_620 .hinfo        {width: 540px;}
+.a_z                                    {line-height: 15px;padding: 15px 0;vertical-align: top;font-family: "宋体";font-size: 14px;}
+.a_z h2                                 {font-weight: bold;}
+.table_city                          {font-size: 14px;width: 100%;}
+.table_city tr.fg td                 {height: 15px;}
+.left_zm                             {color: #000000;font-family: System;font-size: 14px;font-weight: bold;height: 31px;background: none repeat scroll 0 0 #E9E9E9;text-align: center;vertical-align: middle;width: 30px;}
+.right_city                          {color: #0066CC;padding-left: 10px;}
+.right_city a                        {color: #0066CC;}
+.right_city a:hover                  {color: #C50000;}
+.right_city .fz_color                {color: #E4FF00;}
+.s_plast                             {margin-bottom: 10px;}
+.s_province                          {cursor: pointer;display: block;font-size: 24px;margin-bottom: 5px;}
+
+.s_province:hover,
+.s_province:focus                    {text-decoration:underline;}
+
+.m_d_city                            {display: block;}
+.m_d_city a                          {color: #333333;display: inline-block;margin-right: 10px;}
+.m_d_city a:hover                    {color: #C50000;}
+.m_d_zx                              {border-bottom: 1px solid #E0E0E0;display: block;font-size: 16px;margin-bottom: 2px;padding-bottom: 5px;}
+
+.house_marketed                      {background: none repeat scroll 0 0 #F5F5F5;padding: 10px;}
+.house_marketed span                 {color: #0066CC;cursor: pointer;}
+.c_d_o                               {background: none repeat scroll 0 0 #FE9007;}
+.city_datas                          {padding: 5px;}
+.c_meun_bt                           {color: #FFFFFF;font-family: "微软雅黑",宋体;font-size: 16px;height: 25px;line-height: 25px;padding: 2px 0;}
+
+.table_hsdata,
+.table_hparent                       {background: none repeat scroll 0 0 #FFFFFF;} 
+
+.phb                                 {position: relative;border-bottom: 1px solid #efefef;margin-bottom: 5px;}
+.phb a                               {float: left;padding-bottom: 6px;text-align: center;width: 50%;line-height: 35px;font-size: 16px;font-weight: bold;}
+.phb a:hover                         {text-decoration: none;color: #e14f51;}
+.phb a span                          {border-bottom: 3px solid rgba(255, 255, 255, 0);padding-bottom: 11px;}
+.phb a.pactive                       {color: #e14f51;}
+.phb a.pactive span                  {border-bottom: 3px solid #e14f51;}
+.kz                                  {display: none;}
+.table_hsdata                        {width: 100%;}
+
+.table_hsdata,
+.table_hparent                       {background: none repeat scroll 0 0 #FFFFFF;}
+
+.table_hsdata th,
+.table_hsdata .bg_gray               {background: none repeat scroll 0 0 #F5F5F5;}
+
+.table_hsdata td,
+.table_hsdata th                     {line-height: 24px;padding: 2px 1px;color: #999999;}
+
+.table_hsdata th,
+.table_hsdata td                     {text-align: center;}
+.table_hsdata td                     {font-size: 14px}
+.px                                  {cursor: pointer;padding-right: 10px;}
+.pxup                                {background-position: 100% -10px;}
+.table_hsdata a                      {cursor: pointer;}
+.table_hsdata tr:hover td            {background: none repeat scroll 0 0 #fdeff0;}
+.table_hsdata td.tr                  {text-align: right;}
+.city_datas                          {padding: 5px;}
+.c_d_g                               {background: none repeat scroll 0 0 #76AB04;}
+.c_meun_bt                           {color: #FFFFFF;font-family: "微软雅黑",宋体;font-size: 17px;height: 25px;line-height: 25px;padding: 2px 0;}
+
+.table_hsdata,
+.table_hparent                       {background: none repeat scroll 0 0 #FFFFFF;}
+/*footer*/
+#city_s_content,
+#city_s_footer                      {margin: 0 auto;width: 970px;}
+#city_s_footer						{margin-top:30px;}
+#city_s_footer                      {border-top: 2px solid #D5D5D5;padding-bottom: 10px;padding-top: 15px;text-align: left;}
+.rss_allbox                         {position: relative;}
+.lc_xjt                             { font-family:"宋体"; font-size:12px;}
+
+.firend_links 						{color: #999999;margin-top:20px;}
+.firend_links 						{color: #999999;}
+.firend_links a 					{color: #999999;margin-right: 10px;}
+.firend_links a 					{display: inline-block;}
+
+/*-------------------全国城市房价、租金--排行---*/
+
+
+.dt_ul2 .tith2,
+.data_time2 .dt_top2,
+.data_time2 .dt_bottom2             {background: url("http://image3.cityhouse.cn/images/data_time2.png") no-repeat scroll 0 0 transparent;}
+
+.dt_ul2 .tith2,
+.dt_ul2 .month2,
+.data_time2 .dt_top2,
+.data_time2 .dt_center2,
+.data_time2 .dt_bottom2            {float: left;}
+
+.dt_ul2 .ac .tith2                 {background-position: -406px 100%;font-weight: bold;}
+.dt_ul2 .ac .month2                {display: block;}
+#xt_logo2 a                        {background: url("http://image3.cityhouse.cn/images/logo.png") no-repeat scroll 0 12px transparent;display: block;font-size: 18px;height: 22px;line-height: 22px;padding: 15px 0 0 30px;}
+.charts                            {font-family:"黑体","宋体";font-size: 21px;font-weight: normal;}
+.data_time2                        {padding: 20px 0 25px;}
+.data_time2 .dt_center2            {border-bottom: 2px solid #C5C5C5;font-size: 0;position: relative;width: 560px;}
+.dt_ul2                            {bottom: -4px;position: absolute;width: 100%;}
+
+.dt_up,
+.dt_bottom                         {display: block;}
+
+.dt_ul2 li                         {float: left;font-size: 12px;}
+
+.dt_up:after,
+.dt_bottom:after                  {clear: both;content: ".";display: block;font-size: 0;height: 0;line-height: 0;overflow: hidden;visibility: hidden;}
+
+.dt_ul2 .tith2                    {background-position: -349px 100%;cursor: pointer;font-size: 12px;height: 28px;line-height: 28px;padding-bottom: 4px;padding-right: 15px;text-decoration: underline;}
+.month2                           {border-bottom: 2px solid #CC3D47;display: none;padding-right: 10px;}
+.month2 li                        {font-weight: bold;height: 28px;line-height: 28px;margin-right: 5px;}
+.month2 .c_gray                   {color: #999999;}
+
+.data_time2 .dt_top2,
+.data_time2 .dt_bottom2           {background-position: 0 100%;font-size: 0;height: 2px;line-height: 2px;overflow: hidden;width: 113px;}
+
+.data_time2 .dt_bottom2           {background-position: -124px 100%;}
+.alt_date                         {color: #999999;text-align: right;}
+.inner_sj                         {background: none repeat scroll 0 0 #FFFFFF;}
+.sjtable                          {border-bottom:1px solid #DADADA;table-layout: fixed;text-align: center;width: 100%;}
+.sjtable a						  {color:#06c;}
+.sjtable a:hover				  {color:#c50000;}
+.sjtable td,
+.sjtable th                       {border-bottom: 1px solid #DADADA;line-height:26px;text-align: center;border-left:none;}
+.sjtable th div                   {background:#f6f6f6;display: block;height: 29px;line-height: 29px;}
+.sjtable .lst					  {border-right:none;}
+.px                               {cursor: pointer; padding-right:5px;}
+.sjtable th .px                   {line-height: 15px;position: relative;top: 7px;}
+.sjtable th                       {border:none;}
+.charts_link                      {font-family: "宋体";text-align: right;}
+.charts_link a                    {color: #0066CC;}
+a:hover,a:focus                   {color:#c50000}
+.lc_zts,.lc_zts_1                 {cursor:pointer;}
+.lc_zts  .px,
+.lc_zts_1  .px                      {background: url("http://image3.cityhouse.cn/images/sjup.png") 0px 0px no-repeat;zoom:1;}
+.lc_zts .px                         {background-position: 100% 6px;padding-right:20px;}
+.lc_zts_1  .px                      {background-position: 100% -10px;}
+/*添加广告位样式*/
+.lc_adbo                     {background: url("http://image3.cityhouse.cn/images/ad/ad_fj.gif") no-repeat scroll 0 0 transparent;}
+.mb15                        { margin-bottom: 15px;}
+.lc_adpic                    {display:block;height:90px;line-height:90px;font-size:30px;padding-left:160px;}
+.lc_adpic:hover				 {color:#333;text-decoration:none;}
+.dsecurity,/*盾牌0 0*/	
+.gsecurity/*岗亭0 -67*/		 {background:url(http://image3.cityhouse.cn/images/wwwp_icon.png) no-repeat;}
+/*公安*/
+.dsecurity,
+.gsecurity					 {display:inline-block;*display:inline;*zoom:1;width:51px;height:50px;}
+.gsecurity					 {background-position:0 -67px;}
+/*end 公安*/
+/*alt_house*/
+.alt_house,
+.alt_house .close				{border:1px solid #ccc;background-color:#fff;}
+.alt_house						{height:50px;line-height:50px;padding:0 15px;width:auto;bottom:10px;z-index:9999;right:10px;position:absolute;}
+.alt_house .close				{float:right;width:11px;height:11px;overflow:hidden;line-height:33px;margin-top:19px;cursor:pointer;position:absolute;top:0;right:10px;background:url(../images/publicf_icon.png) no-repeat 0 -1065px;}
+
+/*布局*/
+.l-r 						{float: right;width: 275px;}
+.l-c 						{margin: 0 310px 0 0;}
+
+.page_ad img 				{width: 100%;}
+
+/*city_setsybox*/
+.city_setsybox					{ border-bottom:1px solid #dadada; padding-bottom:12px;}
+.city_setsybox .title			{font-size:14px; font-weight:bold; color:#000;}
+.city_setsybox .tips			{font-size:12px; font-weight: normal;color:#999;}
+.city_setsybox .set_sytle 		{ margin-top:7px;}
+.city_setsybox .set_sytle span	{font-size:14px; color:#000;display:table-cell;display:inline-block;*display:inline;zoom:1; cursor:pointer; padding:1px 12px;}
+.city_setsybox .set_sytle span.active{color:#fff; background:#c50000; font-weight:bold;}
+
+/*新版2018*/
+.city_s_onemap_eare {
+    width: 100%;
+    height: 550px;
+    /*background-color: #f5f5f5;*/
+    background-color: cornflowerblue;
+    position: relative;
+}
+.nav-eare {
+    width: 1180px;
+    height: 550px;
+    margin: 0 auto;
+    margin-top: -550px;
+    position: relative;
+}
+.search_area {
+    margin-top: 20px;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+}
+.search_area .search_bar {
+    width: 580px;
+    height: 45px;
+    padding: 0 3px 0 10px;
+    vertical-align: middle;
+    float: left;
+    color: #333;
+    line-height: 45px;
+    font-size: 16px;
+    background: #fff;
+    border: 1px solid #eaeaea;
+}
+.search_area .search_bar::placeholder {color: #999999;}
+.search_area .search_btn {
+    width: 47px;
+    height: 47px;
+    border: none;
+    cursor: pointer;
+    vertical-align: middle;
+    float: left;
+    background: #4169E1 url({% static 'images/ico_search_white.png'%}) no-repeat center;
+    text-indent: -9999px;
+}
+.nav-eare_city_select {
+    width: 380px;
+    position: absolute;
+    top: 0;
+}
+.nav-eare_city_select .city_cur {
+    margin-bottom: 10px;
+    background-color: #fff;
+    padding: 15px;
+    line-height: 24px;
+    font-size: 14px;
+    font-family: "微软雅黑";
+}
+.nav-eare_city_select .city_cur span {
+    color: #999999;
+}
+
+.nav-eare_city_select .city_cur .city_cur_area a{
+    color: #666;
+    margin: 0 6px;
+}
+.nav-eare_city_select .city_cur .city_cur_area a.first{
+    color: #333;
+    font-weight: bold;
+    margin: 0 5px 0 0;
+}
+
+.nav-eare_city_select .city_cont {
+    background-color: #fff;
+    padding: 15px;
+    line-height: 24px;
+    font-size: 14px;
+    font-family: "微软雅黑";
+}
+.nav-eare_city_select .city_cont .indexes {
+    width: 100%;
+    display: inline-block;
+    margin: 10px 0;
+}
+.nav-eare_city_select .city_cont .indexes li {
+    float: left;
+    width: 33%;
+    text-align: center;
+    cursor: pointer;
+    border-right: 1px solid #ccc;
+    line-height: 14px;
+}
+.nav-eare_city_select .city_cont .indexes li:last-child {
+    border-right: none;
+}
+.nav-eare_city_select .city_cont .indexes li.on {
+    color: #d13738;
+}
+
+.nav-eare_city_select .city_cont .letter {
+    width: 100%;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.nav-eare_city_select .city_cont .letter li {
+    border-bottom: 1px dashed #ccc;
+    padding: 8px 0;
+}
+
+.nav-eare_city_select .city_cont .letter li .le_top {
+    font-weight: bold;
+}
+
+.nav-eare_city_select .city_cont .letter li .le_top a {
+    margin:0 5px;
+}
+
+.nav-eare_city_select .city_cont .letter li .le_list {
+    margin-left: 20px;
+}
+
+.nav-eare_city_select .city_cont .letter li .le_list a{
+    margin-right: 10px;
+    display: inline-block;
+    color: #999;
+    line-height: 30px;
+}
+
+.nav-eare_city_select .city_cont .letter li .le_list a.on {
+    color: #d13738;
+    position: relative;
+}
+.nav-eare_city_select .city_cont .letter li .le_list a.on:after{
+    content: "";
+    position: absolute;
+    left: 38%;
+    bottom: 0;
+    font-size: 0;
+    line-height: 0;
+    border-width: 5px;
+    border-color: red;
+    border-top-width: 0;
+    border-style: dashed;
+    border-bottom-style: solid;
+    border-left-color: transparent;
+    border-right-color: transparent;
+
+}
+
+.nav-eare_city_select .city_cont .letter .le_area a{
+    color: #666;
+    margin: 0 6px;
+}
+.nav-eare_city_select .city_cont .letter .le_area a.first{
+    color: #333;
+    font-weight: bold;
+    margin: 0 5px 0 20px;
+}
+
+/*header_top*/
+
+.header_top_nav {
+    background: #d13738;
+    position: relative;
+    z-index: 9990;
+}
+
+.header_top_nav .header_top_content {
+    width: 1180px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.header_top_nav .header_top_content .city_logo {
+    background: url("http://image4.cityhouse.cn/cityhouse/images/2017/logo_white.png") no-repeat;
+    width: 94px;
+    height: 24px;
+    margin: 13px 8px 0 0;
+    float: left;
+}
+
+.header_top_nav .header_top_content h1 {
+    float: left;
+    line-height: 50px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: normal;
+}
+
+.header_top_nav .header_top_content .citychoice {
+    background: url("http://image4.cityhouse.cn/cityhouse/images/2017/ico_point_white.png") no-repeat 0;
+    float: left;
+    padding-left: 20px;
+    line-height: 50px;
+    margin-left: 30px;
+    font-size: 14px;
+}
+
+.header_top_nav .header_top_content .citychoice a {
+    color: #fff;
+}
+
+.header_top_nav .header_top_content .citychoice i {
+    background: url("http://image4.cityhouse.cn/cityhouse/images/2017/Arrow_down_white.png") no-repeat;
+    width: 9px;
+    height: 7px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.header_top_nav .header_top_content .right_cont {
+    float: right;
+}
+
+.header_top_nav .header_top_content .right_cont a {
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    color: #fff;
+    margin: 0 15px;
+    position: relative;
+}
+
+.header_top_nav .header_top_content .right_cont_log {
+    background: url("http://image4.cityhouse.cn/cityhouse/images/2017/head_ico_log.png") no-repeat 10px;
+    padding-left: 32px;
+}
+
+.header_top_nav .header_top_content .right_cont_nav {
+    background: url("http://image4.cityhouse.cn/cityhouse/images/2017/head_ico_nav.png") no-repeat 10px;
+    padding-left: 32px;
+}
+
+.header_top_nav .header_top_content .right_cont_mob {
+    background: url("http://image4.cityhouse.cn/cityhouse/images/2017/head_ico_mob.png") no-repeat 10px;
+    padding-left: 32px;
+}
+
+.header_top_nav .header_top_content .right_cont a.right_cont_btn {
+    background-color: #fff;
+    color: #333;
+    line-height: 26px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0 10px;
+    margin: 12px 6px 0 6px;
+    border-radius: 4px;
+    float: left;
+}
+
+.header_top_nav .header_top_content .right_cont a.right_cont_btn:hover {
+    background-color: #c50000;
+    color: #fff;
+}
+
+.header_top_nav .header_top_content .right_cont_mob:hover .code_phone {
+    display: block!important;
+}
+
+/* footer */
+.footer_nav {
+    background-color: #3b3b3b;
+    width: 100%;
+    font-family: "微软雅黑";
+    display: inline-block;
+    margin-top: 30px;
+}
+
+.w1180 {
+    margin: 0 auto;
+    width: 1180px;
+}
+
+.pos-rel {
+    position: relative;
+}
+
+.custom_service {
+    position: absolute;
+    top: 28px;
+    left: 330px;
+}
+
+.custom_service h1 {
+    background-color: #282828;
+    color: #eee;
+    font-weight: normal;
+    padding: 0 20px;
+    line-height: 26px;
+    border-radius: 30px;
+    display: inline-block;
+    float: left;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+
+.custom_service p {
+    float: left;
+    font-size: 18px;
+    vertical-align: middle;
+    color: #eee;
+}
+
+.footer_menu {
+    display: inline-block;
+    width: 100%;
+    font-size: 14px;
+    color: #eee;
+    padding: 10px 0;
+}
+
+.footer_menu a {
+    color: #eee;
+    text-decoration: none;
+}
+
+.footer_menu a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer_copyright {
+    display: inline-block;
+    width: 100%;
+    font-size: 13px;
+    color: #eee;
+}
+
+.footer_copyright a {
+    color: #eee;
+    text-decoration: none;
+}
+
+.footer_copyright a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer_org {
+    margin-top: 15px;
+    color: #eee;
+}
+
+.footer_org a {
+    font-size: 13px;
+    margin-left: 10px;
+    color: #eee;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.footer_org a:hover,
+.footer_org a:focus {
+    text-decoration: none;
+    color: #eee;
+}
+
+.footer_org .ico_box {
+    background-color: #fff;
+    border-radius: 3px;
+    display: inline-table;
+    height: 23px;
+    line-height: 23px;
+    padding: 1px 2px;
+}
+
+.footer_org .ico_box img {}
+
+.QR_code {
+    position: absolute;
+    right: 10px;
+    top: 32px;
+}
+
+.QR_code img {
+    width: 83px;
+}
+
+.QR_code p {
+    font-size: 14px;
+    color: #eee;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px;
+}
+
+.code_phone {
+    display: none;
+    position: absolute;
+    left: 0;
+    padding: 5px;
+    background-color: #fff;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.code_phone p {
+    font-size: 12px;
+    line-height: 21px;
+    text-align: center;
+    color: #999;
+}
+
+/*header_top end*/
+
+.city_area_content {
+    margin: 0 auto;
+    width: 1180px;
+}
+.citys_content_boxl {
+    width: 770px;
+}
+.citys_content_boxr {
+    width: 385px;
+}
+.citys_content_infobox {
+
+}
+.citys_content_infobox .title {
+    position: relative;
+    margin-bottom: 15px;
+    font-family: "微软雅黑";
+    display: inline-block;
+    width: 100%;
+}
+
+.citys_content_infobox .title .tith {
+    line-height: 42px;
+    font-weight: normal;
+    float: left;
+    font-size: 32px;
+}
+
+.citys_content_infobox .title .tith a:hover {
+    text-decoration: none;
+}
+
+.citys_content_infobox .cont {
+
+}
+
+.cs_info_list li {
+    border: 1px solid #efefef;
+    font-family: "微软雅黑";
+    display: block;
+    margin-top: 20px;
+}
+.cs_info_list .cslist_title {
+    width: 100px;
+    height: 100px;
+    float: left;
+    line-height: 100px;
+    text-align: center;
+    font-size: 20px;
+    margin: 23px;
+    background: url("{% static 'images/cslist_title_bg.png' %}") no-repeat;
+}
+.cs_info_list .cslist_span {
+    line-height: 32px;
+    font-size: 16px;
+    margin-top: 40px;
+}
+.cs_info_list .cslist_btn {
+    margin-top: 10px;
+}
+.cs_info_list .cslist_btn .btn {
+    background-color: #e14f51;
+    border: 2px solid #e14f51;
+    color: #fff;
+    font-weight: normal;
+    font-size: 14px;
+    padding: 0 20px;
+    line-height: 26px;
+    border-radius: 26px;
+    display: inline-block;
+    float: left;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+.cs_info_list .cslist_btn .btn:hover {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+
+.homebox1       					{margin-top: 20px}
+.homebox1 .drc-l					{float:left; width:260px;}
+.homebox1 .drc-l .imgnewbox			{float:left; width:260px;}
+.homebox1 .drc-l .imgnewbox .photo	{width:260px; height:275px;overflow: hidden;}
+.homebox1 .drc-l .imgnewbox .img-h	{background:#f9f9f9;width:260px; height:275px;text-align: center;}
+.homebox1 .drc-l .imgnewbox .img-h img{height:275px;}
+.homebox1 .drc-l .imgnewbox .text	{border:1px solid #ddd; border-top:none; padding:10px; line-height:22px;}
+.homebox1 .drc-l .imgnewbox .text .tit{font-size:14px;}
+.homebox1 .drc-l .imgnewbox .suma	{border-top:1px solid #ededed; padding-top:5px;}
+.homebox1 .drc-l .imgnewbox .suma a	{color:#666;}
+.homebox1 .drc-l .imgnewbox .suma a:hover	{color:#c50000;}
+
+.homebox1 .drc-c					{float:left; width:490px;}
+.homebox1 .drc-c ul					{}
+.homebox1 .drc-c ul li				{padding-bottom:10px;line-height:24px;font-family: "微软雅黑";}
+.homebox1 .drc-c ul li .bt			{font-size:16px;}
+.homebox1 .drc-c ul li .cs			{font-size:12px;color:#999;}
+.homebox1 .drc-c ul li .cs	.source	{margin-right:20px;}
+.homebox1 .drc-c ul li.last			{border:none;padding-bottom:0;}
+
+.newlistbox		{}
+.newlistbox .newlisttitle	{border:none; margin-top:10px; padding:0;}
+.newlistbox .newlisttitle p	{color: #999999;}
+.newlistbox .time	{height:20px; line-height:22px; color:#999;}
+.newlistbox .more	{ position:absolute; top:4px; right:2px;}
+.newlistbox .stit	{font-size:16px; font-weight:bold;}
+.newlistbox .coum	{position:relative;margin-top:15px;}
+.newlistbox .coum em{position:absolute; top:-10px; left:20px; background:url(http://image4.cityhouse.cn/cityhouse/images/home-ui7.png) no-repeat; width:10px; height:10px;}
+.newlistbox .art	 {padding:6px 10px; line-height:22px;background-color: #F2F2F2;}
+.newlistbox .art a	 {}
+.newlistbox .art a:hover{ text-decoration:none; color:#333;}
+
+/*新版2018 end*/
+1</style>
+<link rel="stylesheet" type="text/css" media="screen" href="http://image4.cityhouse.cn/css/layout.css">
+<link rel="stylesheet" type="text/css" media="screen" href="http://image4.cityhouse.cn/css/cityhouse_web_v1.css">
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'js/jquery.js' %}">
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jscityre.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.autocomplete_x.js' %}"></script>
+
+<!--city-->
+
+
+</head>
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<body class="app ">
+
+<!--city-->
+
+<link rel="stylesheet" href="{% static 'js/leaflet/leaflet.css'%}">
+<script src="{% static 'js/lib/jquery-1.9.1.min.js' %}"></script>
+<script src="{% static 'js/lib/layer/layer.js' %}"></script>
+<script src="{% static 'js/lib/underscore-min.js' %}"></script>
+<script src="{% static 'js/leaflet/leaflet.js' %}"></script>
+<script src="{% static 'js/leaflet/fullscreen/Leaflet.fullscreen.min.js' %}"></script>
+<link href="{% static 'js/leaflet/fullscreen/leaflet.fullscreen.css' %}" rel="stylesheet">
+<script src="{% static 'js/leaflet/leaflet-bwms.js' %}"></script>
+
+<script>
+    var defaultProptype = 11;
+    var defaultFlag = 1;
+</script>
+<script src="{% static 'js/onemap/creMap.js' %}"></script>
+
+
+<div class="header_top_nav">
+    <div class="header_top_content">
+        <!-- <div class="city_logo"></div> -->
+        <!-- <h1>|&nbsp;&nbsp;城市房价分析系统</h1> -->
+        <!-- <div class="right_cont"> -->
+            <!-- <a class="right_cont_log" href="/signin.html">注册/登录</a> -->
+            <!-- <a href="http://www.cityre.cn/ad/ad_info/index.html" class="right_cont_mob">登录 </a> -->
+        <!-- </div> -->
+		<nav class="navbar navbar-expand-lg main-navbar">
+					<a class="header-brand" href="../index">
+						<img src="{% static 'assets/img/brand/logo.png' %}" class="header-brand-img" alt="Kharna-Admin  logo">
+					</a>
+					<form class="form-inline mr-auto">
+						<ul class="navbar-nav mr-3">
+							<li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a></li>
+							<li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"><i class="ion ion-search"></i></a></li>
+						</ul>
+						<!-- <div class="search-element"> -->
+							<!-- <input class="form-control" type="search" placeholder="Search" aria-label="Search"> -->
+							<!-- <button class="btn btn-primary" type="submit"><i class="ion ion-search"></i></button> -->
+						<!-- </div> -->
+					</form>
+					<ul class="navbar-nav navbar-right">
+						<li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="ion-ios-email-outline"></i></a>
+							<div class="dropdown-menu dropdown-list dropdown-menu-right">
+								<div class="dropdown-header">Messages
+									<div class="float-right">
+										<a href="#">View All</a>
+									</div>
+								</div>
+								<div class="dropdown-list-content">
+									<a href="#" class="dropdown-item dropdown-item-unread">
+										<img alt="image" src="{% static 'assets/img/avatar/avatar-1.jpeg.jpg' %}" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Stewart Ball</b>
+													<p>Your template awesome</p>
+												</div>
+												<div class="time">6 hours ago</div>
+											</div>
+
+										</div>
+									</a>
+									<a href="#" class="dropdown-item dropdown-item-unread">
+										<img alt="image" src="{% static 'assets/img/avatar/avatar-2.jpeg.jpg' %}" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Jonathan North</b>
+													<p>Your Order Shipped.....</p>
+												</div>
+												<div class="time">45 mins ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<img alt="image" src="{% static 'assets/img/avatar/avatar-4.jpeg.jpg' %}" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Victor Taylor</b>
+													<p>Hi!, I' am web developer</p>
+												</div>
+												<div class="time"> 8 hours ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<img alt="image" src="{% static 'assets/img/avatar/avatar-3.jpeg.jpg' %}" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Ruth	Arnold</b>
+													<p>Hi!, I' am web designer</p>
+												</div>
+												<div class="time"> 3 hours ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<img alt="image" src="{% static 'assets/img/avatar/avatar-5.jpeg.jpg' %}" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Sam	Lyman</b>
+													<p>Hi!, I' am java developer</p>
+												</div>
+												<div class="time"> 15 mintues ago</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</li>
+						<li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link  nav-link-lg beep"><i class="ion-ios-bell-outline"></i></a>
+							<div class="dropdown-menu dropdown-list dropdown-menu-right">
+								<div class="dropdown-header">Notifications
+									<div class="float-right">
+										<a href="#">View All</a>
+									</div>
+								</div>
+								<div class="dropdown-list-content">
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-users text-primary"></i>
+										<div class="dropdown-item-desc">
+											<b>So many Users Visit your template</b>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-exclamation-triangle text-danger"></i>
+										<div class="dropdown-item-desc">
+											<b>Error message occurred....</b>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-users text-warning"></i>
+										<div class="dropdown-item-desc">
+											<b> Adding new people</b>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-shopping-cart text-success"></i>
+										<div class="dropdown-item-desc">
+											<b>Your items Arrived</b>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-comment text-primary"></i>
+										<div class="dropdown-item-desc">
+											<b>New Message received</b> <div class="float-right"><span class="badge badge-pill badge-danger badge-sm">67</span></div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-users text-primary"></i>
+										<div class="dropdown-item-desc">
+											<b>So many Users Visit your template</b>
+										</div>
+									</a>
+								</div>
+							</div>
+						</li>
+						<li class="dropdown dropdown-list-toggle">
+							<a href="#" class="nav-link nav-link-lg full-screen-link">
+								<i class="ion-arrow-expand"  id="fullscreen-button"></i>
+							</a>
+						</li>
+						<li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
+                            <i class="ion ion-android-person"></i>
+							<div class="d-sm-none d-lg-inline-block">{{ username }}</div></a>
+{#							<div class="dropdown-menu dropdown-menu-right">#}
+{#								<a href="../profile" class="dropdown-item has-icon">#}
+{#									<i class="ion ion-android-person"></i> 简介#}
+{#								</a>#}
+{#								<a href="../profile" class="dropdown-item has-icon">#}
+{#									<i class="ion-android-drafts"></i> 消息#}
+{#								</a>#}
+{#								<a href="../profile" class="dropdown-item has-icon">#}
+{#									<i class="ion ion-gear-a"></i> 设置#}
+{#								</a>#}
+{#								<a href="#" class="dropdown-item has-icon">#}
+{#									<i class="ion-ios-redo"></i> 退出登录#}
+{#								</a>#}
+{#							</div>#}
+						</li>
+					</ul>
+				</nav>
+    </div>
+</div>
+<!--end header-->
+
+<div class="city_s_onemap_eare clearfix">
+    <div id="map2017" style="height:550px"></div>
+<!--</div>-->
+<!---->
+<!--<div class="nav-eare">-->
+{#    <div class="search_area">#}
+{#        <form name="cities_search" id="cities_search" action="http://bj.cityhouse.cn/default/search.html" method="GET" id="" name="">#}
+{#            <input type="text" class="search_bar" id="keyword" name="s" placeholder="请输入查询的城市、区市县、楼盘小区、地标" autocomplete="off">#}
+{#            <input type="submit" class="search_btn">#}
+{#        </form>#}
+{#    </div>#}
+
+
+<!--城市选择响应-->
+</div>
+<script>
+    $(function () {
+        //搜索框和城市选择框定位
+        var navlift = $('.header_top_content').offset().left;
+        //搜索框
+        $('.search_area').css({
+            'left':navlift,
+        });
+        //城市选择框
+        $('.nav-eare_city_select').css({
+            'left':navlift+1180-380,
+        });
+    })
+</script>
+ <script language="javascript" type="text/javascript">
+$(function(){
+    var currentProvince = '';
+    var currentCity = '';
+    //城市列表的切换
+    $('.city_cont .indexes li').click(function(){
+        var _index = $(this).index();
+        $(this).siblings().removeClass('on');
+        $(this).addClass('on');
+        $('.city_cont .letter').eq(_index).show().siblings('.letter').hide();
+    });
+
+    $('.city_cont .letter .le_top a').click(function(){
+        $('.city_cont .letter .le_list').hide();
+        $('.city_cont .letter .le_top a').removeClass('on');
+        $(this).addClass('on');
+        currentProvince = $(this).attr('code');
+        showCurrentCitys();
+    });
+
+    function showCurrentCitys()
+    {
+        $('.city_cont .letter .le_area').hide();
+        var currentCityObj = $('.city_cont .letter div[province='+currentProvince+']');
+        $(currentCityObj).show();
+        $(currentCityObj).find('a').hover(function(){
+            currentCity = $(this).attr('code');
+            $('.city_cont .letter .le_area').hide();
+            $('.city_cont .letter .le_list a').removeClass('on');
+            $(this).addClass('on');
+            showCurrentArea();
+        });
+    }
+
+    function showCurrentArea()
+    {
+        var currentDist = $('.city_cont .letter div[city='+currentCity+']');
+        var a_length = $(currentDist).find('a').length || 1;
+        //有行政区时 hover 事件 才显示行政区
+        if (a_length > 1) {
+            $(currentDist).show();
+        }
+    }
+
+    function initProvince()
+    {
+        $('.city_cont .abcfg .le_top a').eq(0).trigger('click');
+        //trigger hover 不执行， 这里用 trigger  mouseover 事件。
+        $('.city_cont .abcfg div[province='+currentProvince+']').find('a').eq(0).trigger('mouseover');
+    }
+
+    initProvince();
+
+    //城市选择显示限制
+    var citys_0 = $('.city_s_onemap_eare').outerHeight(true);
+    var citys_1 = $('.city_cur').outerHeight(true);
+    var citys_2 = $('.letter').outerHeight(true);
+    var letterh = citys_0 - citys_1 - 64 - 10;
+    if (citys_2 > letterh) {
+        $('.letter').css({
+            'height': letterh+'px',
+            'overflow':'auto'
+        });
+    }
+})
+</script>
+
+
+
+<!--city-->
+		<div id="spinner"></div>
+
+		<div id="app">
+			<div class="main-wrapper" >
+				<aside class="app-sidebar">
+					<div class="app-sidebar__user">
+					    <div class="dropdown">
+							<a class="nav-link pl-2 pr-2 leading-none d-flex" data-toggle="dropdown" href="#">
+								<span class="ml-2 d-lg-block">
+									<span class="text-white app-sidebar__user-name mt-5">{{ username }}</span><br>
+								</span>
+							</a>
+						</div>
+					</div>
+						<li class="slide">
+							<a class="side-menu__item"  href="../index"><i class="side-menu__icon fa fa-desktop"></i><span class="side-menu__label">主页</span></a>
+						</li>
+						<li>
+							<a class="side-menu__item" href="../recommend"><i class="side-menu__icon fa fa-flask"></i><span class="side-menu__label">房源推荐</span></a>
+						</li>
+						<li class="slide">
+							<a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-tasks"></i><span class="side-menu__label"">房价信息</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li><a href="../houseinfo" class="slide-item"> 城市房价</a></li>
+								<li><a href="../compare" class="slide-item"> 房价对比</a></li>
+								
+							</ul>
+						</li>
+						<li class="slide">
+						    <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-paw"></i><span class="side-menu__label">房价分析</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li><a href="../ranking" class="slide-item"> 房价排行</a></li>
+								<li><a href="../predict" class="slide-item">房价预测</a></li>
+							</ul>
+						</li>
+						<li class="slide">
+							<a class="side-menu__item"  href="../community"><i class="side-menu__icon fa fa-table"></i><span class="side-menu__label">社区</span></a>
+							
+						</li>
+                    <li class="slide" id = "charger">
+                        <a class="side-menu__item" data-toggle="slide" href="#"><i
+                                class="side-menu__icon fa fa-file-text"></i><span
+                                class="side-menu__label">管理员功能</span><i class="angle fa fa-angle-right"></i></a>
+                        <ul class="slide-menu">
+                            <li><a href="../usermanage" class="slide-item">用户管理</a></li>
+                            <li><a href="../community_m" class="slide-item">帖子管理</a></li>
+                        </ul>
+                    </li>
+                    </ul>
+				</aside>
+
+				<div class="app-content">
+					<section class="section">
+                    	<ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../houseinfo" style="color:#4169E1;font-size:20px;" >热门城市排行</a></li>
+                            <!-- <li class="breadcrumb-item active text-" aria-current="page">Dashboard 01</li> -->
+                        </ol>
+
+						<div class="row">
+							<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+								<div class="card">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-6">
+												<div class="dash1">
+													<h4 class="text-dark">63,905/㎡</h4>
+													<small class="text-muted ">北京</small>
+                                                    <br>
+                                                    <samll class="text-muted">环比：0.20% </samll>
+												</div>
+											</div>
+											<div class="col-6">
+												<div id="chart1" class="overflow-hidden"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+								<div class="card">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-6">
+												<div class="dash1">
+													<h4 class="text-dark">51,877/㎡</h4>
+													<small class="text-muted">上海</small>
+                                                    <br>
+                                                    <samll class="text-muted">环比：-0.48%</samll>
+												</div>
+											</div>
+											<div class="col-6">
+												<div id="chart2" class="overflow-hidden"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+								<div class="card">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-6">
+												<div class="dash1">
+													<h4 class="text-dark">33,858/㎡</h4>
+													<small class="text-muted">广州</small>
+                                                    <br>
+                                                    <samll class="text-muted">环比：2.17%</samll>
+												</div>
+											</div>
+											<div class="col-6">
+												<div id="chart3" class="overflow-hidden"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+								<div class="card">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-6">
+												<div class="dash1">
+													<h4 class="text-dark">62453元/㎡</h4>
+													<small class="text-muted">深圳</small>
+                                                    <br>
+                                                    <samll class="text-muted">环比：0.89%</samll>
+												</div>
+											</div>
+											<div class="col-6">
+												<div id="chart4" class="overflow-hidden"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../houseinfo" style="color:#4169E1;font-size:20px;">上涨城市排行</a></li>
+                            <!-- <li class="breadcrumb-item active text-" aria-current="page">Dashboard 01</li> -->
+                        </ol>
+
+						<div class="row">
+							<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+								<div class="card">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-6">
+												<div class="dash1">
+													<h4 class="text-dark">10325元/㎡</h4>
+													<small class="text-muted">儋州</small>
+                                                    <br>
+                                                    <samll class="text-muted">环比：16.41%</samll>
+												</div>
+											</div>
+											<div class="col-6">
+												<div id="chart5" class="overflow-hidden"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+								<div class="card">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-6">
+												<div class="dash1">
+													<h4 class="text-dark">3961元/㎡</h4>
+													<small class="text-muted">中卫</small>
+                                                    <br>
+                                                    <samll class="text-muted">环比：15.26%</samll>
+												</div>
+											</div>
+											<div class="col-6">
+												<div id="chart6" class="overflow-hidden"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+								<div class="card">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-6">
+												<div class="dash1">
+													<h4 class="text-dark">4995元/㎡</h4>
+													<small class="text-muted">忻州</small>
+                                                    <br>
+                                                    <samll class="text-muted">环比：9.69%</samll>
+												</div>
+											</div>
+											<div class="col-6">
+												<div id="chart7" class="overflow-hidden"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+								<div class="card">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-6">
+												<div class="dash1">
+													<h4 class="text-dark">5374元/㎡</h4>
+													<small class="text-muted">齐齐哈尔</small>
+                                                    <br>
+                                                    <samll class="text-muted">环比：9.17%</samll>
+												</div>
+											</div>
+											<div class="col-6">
+												<div id="chart8" class="overflow-hidden"></div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../houseinfo" style="color:#4169E1;font-size:20px;">下降城市排行</a></li>
+                            <!-- <li class="breadcrumb-item active text-" aria-current="page">Dashboard 01</li> -->
+                        </ol>
+						<div class="row">
+							<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+								<div class="card">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-6">
+												<div class="dash1">
+													<h4 class="text-dark">10316元/㎡</h4>
+													<small class="text-muted">安定</small>
+                                                    <br>
+                                                    <samll class="text-muted">环比：-8.36%</samll>
+												</div>
+											</div>
+											<div class="col-6">
+												<div id="chart9" class="overflow-hidden"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+								<div class="card">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-6">
+												<div class="dash1">
+													<h4 class="text-dark">19421元/㎡</h4>
+													<small class="text-muted">万宁</small>
+                                                    <br>
+                                                    <samll class="text-muted">环比：-7.14%</samll>
+												</div>
+											</div>
+											<div class="col-6">
+												<div id="chart10" class="overflow-hidden"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+								<div class="card">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-6">
+												<div class="dash1">
+													<h4 class="text-dark">4538元/㎡</h4>
+													<small class="text-muted">三门峡</small>
+                                                    <br>
+                                                    <samll class="text-muted">环比：-6.39%</samll>
+												</div>
+											</div>
+											<div class="col-6">
+												<div id="chart11" class="overflow-hidden"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+								<div class="card">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-6">
+												<div class="dash1">
+													<h4 class="text-dark">13101元/㎡</h4>
+													<small class="text-muted">文昌</small>
+                                                    <br>
+                                                    <samll class="text-muted">环比：-6.35%</samll>
+												</div>
+											</div>
+											<div class="col-6">
+												<div id="chart12" class="overflow-hidden"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../compare" style="color:#4169E1;font-size:20px;">楼市成交</a></li>
+                            <!-- <li class="breadcrumb-item active text-" aria-current="page">Dashboard 01</li> -->
+                        </ol>
+						<div class="row ">
+							<div class="col-lg-12 col-xl-6 col-md-12 col-12 col-sm-12">
+								<div class="card">
+									<div class="card-header">
+										<h4>近月楼市成交量与往年同期对比（单位：万）</h4>
+									</div>
+									<div class="card-body">
+										<div id="bar-chart" class="overflow-hidden" > </div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-12 col-xl-6 col-md-12 col-12 col-sm-12">
+								<div class="card">
+									<div class="card-header">
+										<h4>近3年商品房成交额（单位：万）</h4>
+									</div>
+									<div class="card-body">
+										<div id="sales-chart" class="overflow-hidden"> </div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- <div class="row"> -->
+								<!-- <div class="col-lg-12 col-xl-4  col-12"> -->
+									<!-- <div class="card"> -->
+										<!-- <div class="card-header"> -->
+											<!-- <h4>Visitors List</h4> -->
+										<!-- </div> -->
+										<!-- <div class="card-body"> -->
+											<!-- <ul class="visitor list-unstyled list-unstyled-border"> -->
+												<!-- <li class="media"> -->
+													<!-- <img class="mr-3 rounded-circle" width="50" src="assets/img/avatar/avatar-6.jpg" alt="avatar"> -->
+													<!-- <div class="media-body"> -->
+														<!-- <div class="float-right"><small>10-9-2018</small></div> -->
+														<!-- <div class="media-title">Blake Vanessa</div> -->
+														<!-- <small>sed do eiusmod tempor incididunt ut labore</small> -->
+													<!-- </div> -->
+												<!-- </li> -->
+												<!-- <li class="media"> -->
+													<!-- <img class="mr-3 rounded-circle" width="50" src="assets/img/avatar/avatar-2.jpeg.jpg" alt="avatar"> -->
+													<!-- <div class="media-body"> -->
+														<!-- <div class="float-right"><small>15-9-2018</small></div> -->
+														<!-- <div class="media-title">Keith Rutherford</div> -->
+														<!-- <small>sed do eiusmod tempor incididunt ut labore</small> -->
+													<!-- </div> -->
+												<!-- </li> -->
+												<!-- <li class="media"> -->
+													<!-- <img class="mr-3 rounded-circle" width="50" src="assets/img/avatar/avatar-3.jpeg.jpg" alt="avatar"> -->
+													<!-- <div class="media-body"> -->
+														<!-- <div class="float-right"><small>17-9-2018</small></div> -->
+														<!-- <div class="media-title">Elizabeth Parsons</div> -->
+														<!-- <small>sed do eiusmod tempor incididunt ut labore</small> -->
+													<!-- </div> -->
+												<!-- </li> -->
+												<!-- <li class="media border-b0 mb-0 pb-0"> -->
+													<!-- <img class="mr-3 rounded-circle" width="50" src="assets/img/avatar/avatar-4.jpeg.jpg" alt="avatar"> -->
+													<!-- <div class="media-body"> -->
+														<!-- <div class="float-right"><small>22-9-2018</small></div> -->
+														<!-- <div class="media-title">Nicola Lambert</div> -->
+														<!-- <small>sed do eiusmod tempor incididunt ut labore</small> -->
+													<!-- </div> -->
+												<!-- </li> -->
+											<!-- </ul> -->
+										<!-- </div> -->
+									<!-- </div> -->
+								<!-- </div> -->
+								<ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#" style="color:#4169E1;font-size:20px;">最新资讯</a></li>
+                            <!-- <li class="breadcrumb-item active text-" aria-current="page">Dashboard 01</li> -->
+                        </ol>
+								<div class="row">
+								<div class="col-lg-4 col-md-12 col-12 col-sm-12">
+									<div class="card">
+										<div class="img-container">
+											<img src="{% static 'assets/img/news/preview(1).jpg' %}" alt="">
+											<div class="overlay text-center">
+												<!-- <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> -->
+												<a href="#" class="btn btn-primary">Read More</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-12 col-12 col-sm-12">
+									<div class="card">
+										<div class="img-container">
+											<img src="{% static 'assets/img/news/preview(2).jpg' %}" alt="">
+											<div class="overlay text-center">
+												<!-- <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> -->
+												<a href="#" class="btn btn-primary">Read More</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-12 col-12 col-sm-12">
+									<div class="card">
+										<div class="img-container">
+											<img src="{% static 'assets/img/news/preview.jpg' %}" alt="">
+											<div class="overlay text-center">
+												<!-- <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> -->
+												<a href="#" class="btn btn-primary">Read More</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						<!-- <div class="row"> -->
+                        <!-- <div class="col-md-12"> -->
+                            <!-- <div class="card"> -->
+                                <!-- <div class="header card-header-icon"> -->
+                                    <!-- <h4 class="title"><i class="ti-world"></i> Global Sales by Top Locations</h4> -->
+                                <!-- </div> -->
+                                <!-- <div class="content"> -->
+                                    <!-- <div class="row"> -->
+                                        <!-- <div class="col-md-5"> -->
+                                            <!-- <div class="table-responsive table-sales"> -->
+                                                <!-- <table class="table"> -->
+                                                    <!-- <tbody> -->
+                                                        <!-- <tr> -->
+                                                            <!-- <td> -->
+                                                                <!-- <div class="flag"> -->
+                                                                    <!-- <img src="assets/img/flags/US.png" alt=""> -->
+                                                                <!-- </div> -->
+                                                            <!-- </td> -->
+                                                            <!-- <td>USA</td> -->
+                                                            <!-- <td class="text-right"> -->
+                                                                <!-- 2.920 -->
+                                                            <!-- </td> -->
+                                                            <!-- <td class="text-right"> -->
+                                                                <!-- 53.23% -->
+                                                            <!-- </td> -->
+                                                        <!-- </tr> -->
+                                                        <!-- <tr> -->
+                                                            <!-- <td> -->
+                                                                <!-- <div class="flag"> -->
+                                                                    <!-- <img src="assets/img/flags/DE.png" alt=""> -->
+                                                                <!-- </div> -->
+                                                            <!-- </td> -->
+                                                            <!-- <td>Germany</td> -->
+                                                            <!-- <td class="text-right"> -->
+                                                                <!-- 1.300 -->
+                                                            <!-- </td> -->
+                                                            <!-- <td class="text-right"> -->
+                                                                <!-- 20.43% -->
+                                                            <!-- </td> -->
+                                                        <!-- </tr> -->
+                                                        <!-- <tr> -->
+                                                            <!-- <td> -->
+                                                                <!-- <div class="flag"> -->
+                                                                    <!-- <img src="assets/img/flags/AU.png" alt=""> -->
+                                                                <!-- </div> -->
+                                                            <!-- </td> -->
+                                                            <!-- <td>Australia</td> -->
+                                                            <!-- <td class="text-right"> -->
+                                                                <!-- 760 -->
+                                                            <!-- </td> -->
+                                                            <!-- <td class="text-right"> -->
+                                                                <!-- 10.35% -->
+                                                            <!-- </td> -->
+                                                        <!-- </tr> -->
+                                                        <!-- <tr> -->
+                                                            <!-- <td> -->
+                                                                <!-- <div class="flag"> -->
+                                                                    <!-- <img src="assets/img/flags/GB.png" alt=""> -->
+                                                                <!-- </div> -->
+                                                            <!-- </td> -->
+                                                            <!-- <td>United Kingdom</td> -->
+                                                            <!-- <td class="text-right"> -->
+                                                                <!-- 690 -->
+                                                            <!-- </td> -->
+                                                            <!-- <td class="text-right"> -->
+                                                                <!-- 7.87% -->
+                                                            <!-- </td> -->
+                                                        <!-- </tr> -->
+                                                        <!-- <tr> -->
+                                                            <!-- <td> -->
+                                                                <!-- <div class="flag"> -->
+                                                                    <!-- <img src="assets/img/flags/RO.png" alt=""> -->
+                                                                <!-- </div> -->
+                                                            <!-- </td> -->
+                                                            <!-- <td>Romania</td> -->
+                                                            <!-- <td class="text-right"> -->
+                                                                <!-- 600 -->
+                                                            <!-- </td> -->
+                                                            <!-- <td class="text-right"> -->
+                                                                <!-- 5.94% -->
+                                                            <!-- </td> -->
+                                                        <!-- </tr> -->
+                                                        <!-- <tr> -->
+                                                            <!-- <td> -->
+                                                                <!-- <div class="flag"> -->
+                                                                    <!-- <img src="assets/img/flags/BR.png" alt=""> -->
+                                                                <!-- </div> -->
+                                                            <!-- </td> -->
+                                                            <!-- <td>Brasil</td> -->
+                                                            <!-- <td class="text-right"> -->
+                                                                <!-- 550 -->
+                                                            <!-- </td> -->
+                                                            <!-- <td class="text-right"> -->
+                                                                <!-- 4.34% -->
+                                                            <!-- </td> -->
+                                                        <!-- </tr> -->
+                                                    <!-- </tbody> -->
+                                                <!-- </table> -->
+                                            <!-- </div> -->
+                                        <!-- </div> -->
+                                        <!-- <div class="col-md-6 col-md-offset-1"> -->
+                                            <!-- <div id="worldMap" class="map"></div> -->
+                                        <!-- </div> -->
+                                    <!-- </div> -->
+                                <!-- </div> -->
+                            <!-- </div> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+
+					</section>
+				</div>
+
+				<footer class="main-footer">
+					<div class="text-center">
+						房价分析系统
+					</div>
+				</footer>
+
+			</div>
+		</div>
+		<!--Jquery.min js-->
+		<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+
+		<!--popper js-->
+		<script src="{% static 'assets/js/popper.js' %}"></script>
+
+		<!--Tooltip js-->
+		<script src="{% static 'assets/js/tooltip.js' %}"></script>
+
+		<!--Bootstrap.min js-->
+		<script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+		<!--Jquery.nicescroll.min js-->
+		<script src="{% static 'assets/plugins/nicescroll/jquery.nicescroll.min.js' %}"></script>
+
+		<!--Scroll-up-bar.min js-->
+		<script src="{% static 'assets/plugins/scroll-up-bar/dist/scroll-up-bar.min.js' %}"></script>
+
+		<!--Sidemenu js-->
+		<script src="{% static 'assets/plugins/toggle-menu/sidemenu.js' %}"></script>
+
+		<!--mCustomScrollbar js-->
+		<script src="{% static 'assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+
+		<!-- ECharts -->
+		<script src="{% static 'assets/plugins/echarts/dist/echarts.js' %}"></script>
+
+		<!--Min Calendar -->
+		<script src="{% static 'assets/plugins/fullcalendar/calendar.min.js' %}"></script>
+		<script src="{% static 'assets/plugins/fullcalendar/custom_calendar.js' %}"></script>
+
+		<!--Morris js-->
+		<script src="{% static 'assets/plugins/morris/morris.min.js' %}"></script>
+		<script src="{% static 'assets/plugins/morris/raphael.min.js' %}"></script>
+
+		<!--Scripts js-->
+		<script src="{% static 'assets/js/scripts.js' %}"></script>
+
+		<!--Dashboard js-->
+		<script src="{% static 'assets/js/dashboard.js' %}"></script>
+		<script src="{% static 'assets/js/apexcharts.js' %}"></script>
+        <script>
+            var charger = {{ charger }}
+            if(charger === 1) {
+                document.getElementById("charger").style.visibility = "visible";
+            }
+            else {
+                document.getElementById("charger").style.visibility = "hidden";
+            }
+        </script>
+	</body>
+</html>

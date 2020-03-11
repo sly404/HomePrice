@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    </thead>
+    <tbody id="render">
+    {% for item in dataRanking %}
+        <tr>
+            <td>{{ item.communityCityName}}</td>
+            <td>{{ item.communityDistrictName }}</td>
+            <td>{{ item.communityName }}</td>
+            <td>{{ item.communityLocation }}</td>
+            <td>{{ item.usage }}</td>
+            <td>{{ item.communityPrice }}</td>
+            <td>{{ item.ranking }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

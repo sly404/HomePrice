@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test render</title>
+</head>
+<body>
+<table>
+    <thead>
+    </thead>
+    <tbody id="render">
+    {% for item in data %}
+        <tr>
+            <td>{{ item.communityName}}</td>
+            <td>{{ item.communityLocation }}</td>
+            <td>{{ item.usage }}</td>
+            <td>{{ item.communityPrice }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

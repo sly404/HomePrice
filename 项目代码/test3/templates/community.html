@@ -1,0 +1,382 @@
+<!--田国庆编写-->
+<!--陈潇阳修改-->
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+	<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>996也付不起首付队</title>
+
+		<!--favicon -->
+		<link rel="icon" href="{% static 'assets/img/favicon.ico'%}" type="image/x-icon"/>
+
+		<!--Bootstrap.min css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+
+		<!--Icons css-->
+		<link rel="stylesheet" href="{% static 'assets/css/icons.css' %}">
+
+		<!--Style css-->
+		<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+		<!--mCustomScrollbar css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/scroll-bar/jquery.mCustomScrollbar.css' %}">
+
+		<!--Sidemenu css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/toggle-menu/sidemenu.css' %}">
+
+		<!--Morris css-->
+		<link rel="stylesheet" href="{% static 'assets/plugins/morris/morris.css' %}">
+		
+	</head>
+
+	<body class="app ">
+
+		<div id="spinner"></div>
+
+		<div id="app">
+			<div class="main-wrapper" >
+				<div class="header_top_nav">
+    <div class="header_top_content">
+        
+		<nav class="navbar navbar-expand-lg main-navbar">
+					<a class="header-brand" href="../index">
+						<img src="{% static 'assets/img/brand/logo.png' %}" class="header-brand-img" alt="Kharna-Admin  logo">
+					</a>
+					<form class="form-inline mr-auto">
+						<ul class="navbar-nav mr-3">
+							<li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a></li>
+							<li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"><i class="ion ion-search"></i></a></li>
+						</ul>
+					
+					</form>
+					<ul class="navbar-nav navbar-right">
+						<li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="ion-ios-email-outline"></i></a>
+							<div class="dropdown-menu dropdown-list dropdown-menu-right">
+								<div class="dropdown-header">Messages
+									<div class="float-right">
+										<a href="#">View All</a>
+									</div>
+								</div>
+								<div class="dropdown-list-content">
+									<a href="#" class="dropdown-item dropdown-item-unread">
+										<img alt="image" src="{% static 'assets/img/avatar/avatar-1.jpeg.jpg' %}" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Stewart Ball</b>
+													<p>Your template awesome</p>
+												</div>
+												<div class="time">6 hours ago</div>
+											</div>
+
+										</div>
+									</a>
+									<a href="#" class="dropdown-item dropdown-item-unread">
+										<img alt="image" src="{% static 'assets/img/avatar/avatar-2.jpeg.jpg' %}" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Jonathan North</b>
+													<p>Your Order Shipped.....</p>
+												</div>
+												<div class="time">45 mins ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<img alt="image" src="{% static 'assets/img/avatar/avatar-4.jpeg.jpg' %}" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Victor Taylor</b>
+													<p>Hi!, I' am web developer</p>
+												</div>
+												<div class="time"> 8 hours ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<img alt="image" src="{% static 'assets/img/avatar/avatar-3.jpeg.jpg' %}" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Ruth	Arnold</b>
+													<p>Hi!, I' am web designer</p>
+												</div>
+												<div class="time"> 3 hours ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<img alt="image" src="{% static 'assets/img/avatar/avatar-5.jpeg.jpg' %}" class="rounded-circle dropdown-item-img">
+										<div class="dropdown-item-desc">
+											<div class="dropdownmsg d-flex">
+												<div class="">
+													<b>Sam	Lyman</b>
+													<p>Hi!, I' am java developer</p>
+												</div>
+												<div class="time"> 15 mintues ago</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</li>
+						<li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link  nav-link-lg beep"><i class="ion-ios-bell-outline"></i></a>
+							<div class="dropdown-menu dropdown-list dropdown-menu-right">
+								<div class="dropdown-header">Notifications
+									<div class="float-right">
+										<a href="#">View All</a>
+									</div>
+								</div>
+								<div class="dropdown-list-content">
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-users text-primary"></i>
+										<div class="dropdown-item-desc">
+											<b>So many Users Visit your template</b>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-exclamation-triangle text-danger"></i>
+										<div class="dropdown-item-desc">
+											<b>Error message occurred....</b>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-users text-warning"></i>
+										<div class="dropdown-item-desc">
+											<b> Adding new people</b>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-shopping-cart text-success"></i>
+										<div class="dropdown-item-desc">
+											<b>Your items Arrived</b>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-comment text-primary"></i>
+										<div class="dropdown-item-desc">
+											<b>New Message received</b> <div class="float-right"><span class="badge badge-pill badge-danger badge-sm">67</span></div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<i class="fa fa-users text-primary"></i>
+										<div class="dropdown-item-desc">
+											<b>So many Users Visit your template</b>
+										</div>
+									</a>
+								</div>
+							</div>
+						</li>
+						<li class="dropdown dropdown-list-toggle">
+							<a href="#" class="nav-link nav-link-lg full-screen-link">
+								<i class="ion-arrow-expand"  id="fullscreen-button"></i>
+							</a>
+						</li>
+						<li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
+                            <i class="ion ion-android-person"></i>
+							<div class="d-sm-none d-lg-inline-block">{{ username1 }}</div></a>
+						</li>
+					</ul>
+				</nav>
+    </div>
+</div>
+
+				<aside class="app-sidebar">
+					<div class="app-sidebar__user">
+					    <div class="dropdown">
+							<a class="nav-link pl-2 pr-2 leading-none d-flex" data-toggle="dropdown" href="#">
+								<span class="ml-2 d-lg-block">
+									<span class="text-white app-sidebar__user-name mt-5">{{ username1 }}</span><br>
+								</span>
+							</a>
+						</div>
+					</div>
+						<li class="slide">
+							<a class="side-menu__item"  href="../index"><i class="side-menu__icon fa fa-desktop"></i><span class="side-menu__label">主页</span></a>
+						</li>
+						<li>
+							<a class="side-menu__item" href="../recommend"><i class="side-menu__icon fa fa-flask"></i><span class="side-menu__label">房源推荐</span></a>
+						</li>
+						<li class="slide">
+							<a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-tasks"></i><span class="side-menu__label">房价信息</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li><a href="../houseinfo" class="slide-item"> 城市房价</a></li>
+								<li><a href="../compare" class="slide-item"> 房价对比</a></li>
+								
+							</ul>
+						</li>
+						<li class="slide">
+						    <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-paw"></i><span class="side-menu__label">房价分析</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li><a href="../ranking" class="slide-item"> 房价排行</a></li>
+								<li><a href="../predict" class="slide-item">房价预测</a></li>
+							</ul>
+						</li>
+						<li class="slide">
+							<a class="side-menu__item"  href="../community"><i class="side-menu__icon fa fa-table"></i><span class="side-menu__label">社区</span></a>
+							
+						</li>
+						<li class="slide"  id = "charger">
+							<a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-file-text"></i><span class="side-menu__label">管理员功能</span><i class="angle fa fa-angle-right"></i></a>
+							<ul class="slide-menu">
+								<li><a href="../usermanage" class="slide-item"> 用户管理</a></li>
+								<li><a href="../community_m" class="slide-item"> 帖子管理</a></li>
+							</ul>
+						</li>
+					</ul>
+				</aside>
+
+				<div class="app-content">
+					<div class="section">
+                    	<ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../index">主页</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">社区</li>
+                        </ol>
+
+						<div class="email-app mb-4">
+							<div class="inbox p-0">
+							<div class="card">
+                                <form class="card-body">
+                                    <form action="" method="post">
+                                    {% csrf_token %}
+                                        <input name="title" style="border:1px solid #004680;height:40px"
+                                               class="form-control" placeholder="输入帖子标题！"/>
+                                        <br>
+
+                                        <textarea name="article" style="border:1px solid #004680;height:120px"
+                                                  class="form-control" placeholder="发表一个帖子吧！"></textarea>
+                                        <br>
+                                        <button type="submit" class="btn btn-primary m-b-5 m-t-5" href="#">发布</button>
+{#                                        <input type="submit" value="发布" class="btn btn-primary btn-block"#}
+{#                                               href='../community'/>#}
+                                    </form>
+                                </form>
+                            </div>
+								<div class="card-body">
+								
+									<div class="mailsearch mb-0">
+										<input class="form-control" type="search" placeholder="搜索" aria-label="Search">
+										<button class="btn btn-primary" type="submit"><i class="ion ion-search"></i></button>
+									</div>
+								</div>
+
+								 <ul class="mail_list list-group list-unstyled">
+                                     {% for post in posts %}
+                                         <li class="list-group-item">
+                                             <div class="media">
+                                                 <div class="pull-left">
+                                                     <div class="controls">
+                                                         <div class="checkbox">
+                                                             <!-- <input type="checkbox" id="basic_checkbox_1"> -->
+                                                             <label for="basic_checkbox_1"></label>
+                                                         </div>
+                                                         <a href="javascript:void(0);"
+                                                            class="favourite text-muted hidden-sm-down"
+                                                            data-toggle="active"><i class="zmdi zmdi-star-outline"></i></a>
+                                                     </div>
+                                                 </div>
+                                                 <div class="media-body">
+                                                     <div class="media-heading">
+                                                         <a href="../profile" class="mr-2" id="{{ post.id }}"
+                                                            onclick="
+                                                            myfunction(id)">{{ post.postName }}</a>
+                                                         <small class="float-right text-muted">
+                                                             <time class="hidden-sm-down">{{ post.postTime }}</time>
+                                                             <i class="zmdi zmdi-attachment-alt ml-2"></i></small>
+                                                     </div>
+                                                     <p class="msg">{{ post.postContent }}</p>
+                                                 </div>
+                                             </div>
+                                         </li>
+                                     {% endfor %}
+								</ul>
+								
+								<div class="row">
+									<div class="col-sm-12 col-md-5">
+										<div class="dataTables_info" id="example_info" role="status" aria-live="polite"></div>
+									</div>
+									<div class="col-sm-12 col-md-7">
+										<div class="dataTables_paginate paging_simple_numbers" id="example_paginate">
+											<ul class="pagination">
+												<li class="paginate_button page-item previous disabled" id="example_previous">
+													<a href="#" aria-controls="example" data-dt-idx="0" tabindex="0" class="page-link">上一页</a>
+												</li>
+												<li class="paginate_button page-item active">
+													<a href="#" aria-controls="example" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+												</li>
+												<li class="paginate_button page-item ">
+													<a href="#" aria-controls="example" data-dt-idx="2" tabindex="0" class="page-link">2</a>
+												</li>
+												<li class="paginate_button page-item ">
+													<a href="#" aria-controls="example" data-dt-idx="3" tabindex="0" class="page-link">3</a>
+												</li>
+												<li class="paginate_button page-item next" id="example_next">
+													<a href="#" aria-controls="example" data-dt-idx="6" tabindex="0" class="page-link">下一页</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+
+					</div>
+				</div>
+
+
+    	</div>
+    </div>
+		
+		<!-- 评论 -->
+
+
+        <script>
+            function myfunction(id) {
+
+                $.post("/postid/", {"postid": id}, function (data) {
+                })
+            }
+        </script>
+<!--Jquery.min js-->
+		<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+
+		<!--popper js-->
+		<script src="{% static 'assets/js/popper.js' %}"></script>
+
+		<!--Tooltip js-->
+		<script src="{% static 'assets/js/tooltip.js' %}"></script>
+
+		<!--Bootstrap.min js-->
+		<script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+		<!--Jquery.nicescroll.min js-->
+		<script src="{% static 'assets/plugins/nicescroll/jquery.nicescroll.min.js' %}"></script>
+
+		<!--Scroll-up-bar.min js-->
+		<script src="{% static 'assets/plugins/scroll-up-bar/dist/scroll-up-bar.min.js' %}"></script>
+
+		<!--mCustomScrollbar js-->
+		<script src="{% static 'assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+
+		<!--Sidemenu js-->
+		<script src="{% static 'assets/plugins/toggle-menu/sidemenu.js' %}"></script>
+
+		<!--Scripts js-->
+		<script src="{% static 'assets/js/scripts.js' %}"></script>
+        <script>
+            var charger = {{ charger }}
+            if(charger === 1) {
+                document.getElementById("charger").style.visibility = "visible";
+            }
+            else {
+                document.getElementById("charger").style.visibility = "hidden";
+            }
+        </script>
+	</body>
+</html>
